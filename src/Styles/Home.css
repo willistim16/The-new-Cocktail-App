@@ -1,0 +1,107 @@
+.headerGroupHome {
+    background-image: url("/src/assets/Images/Eindopdracht Achtergrondafbeelding voor alle 5 pagina's.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 1000px;
+    width: 100%;
+}
+
+.HeaderHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 200px auto 50px 480px;
+    width: ;
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    max-width: 500px;
+    margin-top: 20px;
+}
+
+.mostPopularContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto 20px auto;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+    border-radius: 40px;
+    margin-top: 20px;
+}
+
+.Top3-h2 {
+    text-decoration: underline;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    /*margin: 20px auto;*/
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.mostPopularContainer p {
+    font-size: 12px;
+}
+
+.MostPopularHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 325px;
+}
+
+image a:hover {
+    cursor: pointer;
+}
+
+.paginaUitleg-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 50px;
+}
+
+.paginaUitleg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+}
+
+.paginaUitleg p {
+    font-size: 12px;
+}
+
+.paginaUitleg-h2 {
+    text-decoration: underline;
+    font-size: 30px;
+    color: darkblue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin: 100px auto 50px auto;
+}
+
+.bannerInbetween img {
+    border-radius: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 300px;
+}
