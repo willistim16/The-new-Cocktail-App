@@ -2,6 +2,8 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 5px;
 }
 
 body {
@@ -17,19 +19,26 @@ main {
   width: 100%;
 }
 
-.Header {
+.headerGroupHome {
+  background-image: url("/src/assets/Images/Eindopdracht Achtergrondafbeelding voor alle 5 pagina's.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 900px;
+  width: 100%;
+  background-position: center bottom;
+}
+
+.GlobalHeader {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  margin: 200px auto 50px 480px;
-  width: 1400px;
+  margin: 100px auto 50px 750px;
 }
 
 h1 {
   font-size: 60px;
 }
-
 
 nav ul {
   list-style: none;
