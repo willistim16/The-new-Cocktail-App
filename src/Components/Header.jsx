@@ -1,4 +1,5 @@
 import NavigationBar from "./NavigationBar.jsx";
+import '/src/Styles/Header.css'
 
 
 function Header (props) {
@@ -6,7 +7,7 @@ function Header (props) {
     return (
         <div className="headerGroupHome">
             <NavigationBar />
-            <div className="GlobalHeader">
+            <div className="HeaderAllPages">
                 <h1>
                     {props.title}
                 </h1>

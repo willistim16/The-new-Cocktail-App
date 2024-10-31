@@ -6,19 +6,15 @@ import Footer from "../Components/Footer.jsx";
 function ZoekenFilteren() {
     return (
         <>
-            <Header title="Search, Filter & Find!" content="Search and/or filter your favorite cocktail!" />
+            <div className="headerSearchPage">
+                <Header title="Search, Filter & Find!" content="Search and/or filter to find your favorite cocktail!" />
+            </div>
             <main>
                 <div className="SearchOptionsSection">
                     <div className="searchPageTile">
                         <a>
                             <h3>All cocktails</h3>
                             <img alt="All-cocktails" src="/src/assets/Images/All-cocktails.jpg"/>
-                        </a>
-                    </div>
-                    <div className="searchPageTile">
-                        <a>
-                            <h3>Classics</h3>
-                            <img alt="Classics" src="/src/assets/Images/Classics.jpg"/>
                         </a>
                     </div>
                     <div className="searchPageTile">
