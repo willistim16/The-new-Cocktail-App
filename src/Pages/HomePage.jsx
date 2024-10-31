@@ -1,25 +1,31 @@
 import '/src/Styles/Home.css'
 import '/src/Styles/globals.css'
 import Header from "../Components/Header.jsx";
-import PopularCocktails from "../Components/PopularCocktails.jsx";
+import Top3CocktailHomePage from "../Components/Top3CocktailHomePage.jsx";
 import Footer from "../Components/Footer.jsx";
 
 function Home() {
     return (
         <>
-            <Header
-                title="Welkom!"
-                content="
-                    Ben jij op zoek naar de juiste cocktail voor de juiste gelegenheid? Dan ben je bij ons op het
-                    juiste adres! Vindt je het vaak lastig om te bedenken welke cocktail jij kan maken met de
-                    ingredienten die je in huis hebt? Weet je niet wat je nodig hebt voor jouw favoriete cocktail?
-                    Kijk dan snel rond en ervaar de talloze cocktails en mocktails!"
-            />
+            <div className="HomePageHeader">
+                <Header
+                    title="Welkom!"
+                    content="
+                        Ben jij op zoek naar de juiste cocktail voor de juiste gelegenheid? Dan ben je bij ons op het
+                        juiste adres! Vindt je het vaak lastig om te bedenken welke cocktail jij kan maken met de
+                        ingredienten die je in huis hebt? Weet je niet wat je nodig hebt voor jouw favoriete cocktail?
+                        Kijk dan snel rond en ervaar de talloze cocktails en mocktails!"
+                />
+            </div>
             <main>
                 <div className="MostPopularHeader">
-                    <h2>Top 3 meest populaire cocktails</h2>
+                    <h2>Top 3 cocktails</h2>
                 </div>
-                    <PopularCocktails/>
+                <div className="Top3CocktailsHomePage">
+                    <Top3CocktailHomePage/>
+                    <Top3CocktailHomePage/>
+                    <Top3CocktailHomePage/>
+                </div>
                 <div className="bannerInbetween">
                     <img alt="banner inbetween" src="/src/assets/Images/Banner.jpg"/>
                 </div>

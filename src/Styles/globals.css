@@ -3,7 +3,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 5px;
+  padding: 0;
 }
 
 body {
@@ -26,14 +26,6 @@ main {
   height: 900px;
   width: 100%;
   background-position: center bottom;
-}
-
-.GlobalHeader {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  margin: 100px auto 50px 750px;
 }
 
 h1 {

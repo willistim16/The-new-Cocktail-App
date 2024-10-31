@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import '/src/Styles/globals.css'
-import '/src/Styles/PopularCocktails.css'
+import '/src/Styles/Top3CocktailHomePage.css'
 import '/src/Styles/Home.css'
 
-function PopularCocktails() {
+function Top3CocktailHomePage() {
     const [cocktails, setCocktails] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -16,7 +16,7 @@ function PopularCocktails() {
             const data = await response.json();
 
             // Update state with fetched data
-            setCocktails(data.drinks.slice(10, 13));
+            setCocktails(data.drinks.slice(61, 62));
         } catch (error) {
             console.error("Error fetching popular cocktails:", error);
         } finally {
@@ -56,4 +56,4 @@ function PopularCocktails() {
     );
 }
 
-export default PopularCocktails;
+export default Top3CocktailHomePage;
