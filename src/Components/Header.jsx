@@ -2,17 +2,17 @@ import NavigationBar from "./NavigationBar.jsx";
 import '/src/Styles/Header.css'
 
 
-function Header (props) {
+function Header ({content, title}) {
 
     return (
         <div className="headerGroupHome">
             <NavigationBar />
             <div className="HeaderAllPages">
                 <h1>
-                    {props.title}
+                    {title}
                 </h1>
                 <p>
-                    {props.content}
+                    {content}
                 </p>
             </div>
         </div>

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import '/src/Styles/LogInnPrompter.css'
+import '/src/Styles/RegisterPrompt.css'
 
-function LoginComponent() {
+function LoginPrompt() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -35,6 +36,9 @@ function LoginComponent() {
                                 Username:
                                 <div className="ModalInputStyle">
                                     <input
+                                        autoComplete="username"
+                                        name="username"
+                                        id={username}
                                         type="text"
                                         value={username}
                                         onChange={(e) => setUsername(e.target.value)}
@@ -47,6 +51,9 @@ function LoginComponent() {
                                 Password:
                                 <div className="ModalInputStyle">
                                     <input
+                                        autoComplete="password"
+                                        name="password"
+                                        id={password}
                                         type="password"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
@@ -55,8 +62,10 @@ function LoginComponent() {
                                 </div>
                             </label>
                             <br/>
+                            <div className="buttonsPrompt">
                             <button type="submit">Inloggen</button>
                             <button type="button" onClick={handleClose}>Cancel</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -65,4 +74,4 @@ function LoginComponent() {
     );
 }
 
-export default LoginComponent;
+export default LoginPrompt;

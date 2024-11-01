@@ -1,0 +1,42 @@
+@media (min-width: 600px) {
+    .AllCocktailsTile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        gap: 10px;
+    }
+}
+
+.AllCocktailsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 80px;
+    width: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.AllCocktailsTile img {
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
+}
+
+.AllCocktailsTile h2 {
+    font-size: 25px;
+}
+
+.headerAllCocktailsPage h1 {
+    padding-left: 170px;
+    text-align: center;
+}
+
+.AllCocktailsTile a {
+    font-size: 25px;
+    text-align: center;
+}

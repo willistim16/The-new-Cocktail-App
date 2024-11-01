@@ -34,25 +34,19 @@ function Home() {
                 </div>
                 <div className="paginaUitleg-container">
                     <div className="paginaUitleg">
-                        <h3><a  href="/ZoekenFilteren">Zoeken/Filteren pagina</a></h3>
+                        <h3><a  href="/SearchPage">Cocktails Zoeken</a></h3>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cum eligendi, et labore libero obcaecati sint? Aliquam amet, animi consequuntur distinctio illo illum iure laboriosam natus, odit quam qui quibusdam sint, unde! Ab adipisci at dolore doloribus earum error facilis labore laborum, nam natus nisi nostrum quasi quidem saepe tenetur.
                         </p>
                     </div>
                     <div className="paginaUitleg">
-                        <h3><a  href="/SingleCocktailPage">Single cocktail pagina</a></h3>
+                        <h3><a href="/Favorieten">Mijn Favorieten</a></h3>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cum eligendi, et labore libero obcaecati sint? Aliquam amet, animi consequuntur distinctio illo illum iure laboriosam natus, odit quam qui quibusdam sint, unde! Ab adipisci at dolore doloribus earum error facilis labore laborum, nam natus nisi nostrum quasi quidem saepe tenetur.
                         </p>
                     </div>
                     <div className="paginaUitleg">
-                        <h3><a href="/Favorieten">Favorieten pagina</a></h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cum eligendi, et labore libero obcaecati sint? Aliquam amet, animi consequuntur distinctio illo illum iure laboriosam natus, odit quam qui quibusdam sint, unde! Ab adipisci at dolore doloribus earum error facilis labore laborum, nam natus nisi nostrum quasi quidem saepe tenetur.
-                        </p>
-                    </div>
-                    <div className="paginaUitleg">
-                        <h3><a href="/LogInRegisterPage">Inloggen/Registreren pagina</a></h3>
+                        <h3><a href="/LogInRegisterPage">Inloggen & Registreren</a></h3>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cum eligendi, et labore libero obcaecati sint? Aliquam amet, animi consequuntur distinctio illo illum iure laboriosam natus, odit quam qui quibusdam sint, unde! Ab adipisci at dolore doloribus earum error facilis labore laborum, nam natus nisi nostrum quasi quidem saepe tenetur.
                         </p>

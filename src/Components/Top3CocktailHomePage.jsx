@@ -6,17 +6,15 @@ import '/src/Styles/Home.css'
 function Top3CocktailHomePage() {
     const [cocktails, setCocktails] = useState([]);
     const [loading, setLoading] = useState(true);
-
-    // Function to fetch popular cocktails
-    const fetchPopularCocktails = async () => {
-        const apiUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail";
+    const fetchRandomCocktails = async () => {
+        const apiUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
         try {
             const response = await fetch(apiUrl);
             const data = await response.json();
 
             // Update state with fetched data
-            setCocktails(data.drinks.slice(61, 62));
+            setCocktails(data.drinks);
         } catch (error) {
             console.error("Error fetching popular cocktails:", error);
         } finally {
@@ -26,12 +24,11 @@ function Top3CocktailHomePage() {
 
     // Fetch data when the component mounts
     useEffect(() => {
-        fetchPopularCocktails();
+        fetchRandomCocktails();
     }, []);
 
     return (
         <div>
-
             {loading ? (
                 <p>Loading...</p>
             ) : (

@@ -5,9 +5,8 @@ function NavigationBar() {
             <div className="NavItems">
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/ZoekenFilteren">Zoeken/Filteren</a></li>
-                    <li><a href="/Favorieten">Favorieten</a></li>
-                    <li><a href="/SingleCocktailPage">SingleCocktailPage</a></li>
+                    <li><a href="/SearchPage">Zoeken</a></li>
+                    <li><a href="/Favorieten">Mijn favorieten</a></li>
                     <li><a href="/LogInRegisterPage">Inloggen/Registreren</a></li>
                 </ul>
             </div>
