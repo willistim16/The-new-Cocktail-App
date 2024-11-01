@@ -17,6 +17,7 @@ main {
   background-blend-mode: luminosity;
   padding-bottom: 50px;
   width: 100%;
+  flex-grow: 1;
 }
 
 .headerGroupHome {
@@ -30,6 +31,7 @@ main {
 
 h1 {
   font-size: 60px;
+  color: indianred;
 }
 
 nav ul {

@@ -2,7 +2,7 @@ import Header from "../Components/Header.jsx";
 import '/src/Styles/LogInRegisterPage.css'
 import '/src/Styles/globals.css';
 import Footer from "../Components/Footer.jsx";
-import LoginComponent from "../Components/LogInnPrompt.jsx";
+import LoginPrompt from "../Components/LogInnPrompt.jsx";
 import RegisterPrompt from "../Components/RegisterPrompt.jsx";
 
 function LogInRegisterPage() {
@@ -15,7 +15,7 @@ function LogInRegisterPage() {
             <main>
                 <div className="button-container">
                     <a>
-                        <LoginComponent />
+                        <LoginPrompt />
                     </a>
                     <a>
                         <RegisterPrompt />

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from "axios";
+// import axios from "axios";
 import '/src/Styles/cocktailDetails.css'
+import '/src/Styles/Header.css'
 
 const CocktailDetails = () => {
     const {id} = useParams();
@@ -13,7 +14,7 @@ const CocktailDetails = () => {
     useEffect(() => {
         const fetchCocktailDetails = async () => {
             try {
-                const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`);
+                const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
                 if (!response.ok) {
                     return Error('Failed to fetch cocktail details');
                 } else {
@@ -25,7 +26,7 @@ const CocktailDetails = () => {
                         setError('Cocktail not found');
                     }
                 }
-                console.log(fetchCocktailDetails())
+                console.log(response)
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -47,10 +48,16 @@ const CocktailDetails = () => {
                         <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink}/>
                     </div>
                     <div className="cocktailDetails-container">
-                        <h3>Category: {cocktail.strCategory}</h3>
-                        <h3>Alcoholic: {cocktail.strAlcoholic}</h3>
-                        <div className="cocktailIngredients">
-                            <h3>Ingredients:</h3>
+                        <div className="cocktailDetailTiles">
+                            <h3>Category</h3>
+                            <p>{cocktail.strCategory}</p>
+                        </div>
+                        <div className="cocktailDetailTiles">
+                        <h3>Alcoholic</h3>
+                            <p>{cocktail.strAlcoholic}</p>
+                        </div>
+                        <div className="cocktailDetailTiles">
+                        <h3>Ingredients</h3>
                             <ul>
                                 {[...Array(15)].map((_, i) => {
                                     const ingredient = cocktail[`strIngredient${i + 1}`];
@@ -59,11 +66,10 @@ const CocktailDetails = () => {
                                 })}
                             </ul>
                         </div>
-                        <div className="PrepInstructions">
-                            <h3>Instructions:</h3>
+                        <div className="cocktailDetailIngredients">
+                            <h3>Instructions</h3>
                             <p>{cocktail.strInstructions}</p>
                         </div>
-
                     </div>
                 </div>
             );
