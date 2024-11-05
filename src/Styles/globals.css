@@ -17,7 +17,7 @@ main {
   background-blend-mode: luminosity;
   padding-bottom: 50px;
   width: 100%;
-  flex-grow: 1;
+  flex-grow: 2;
 }
 
 .headerGroupHome {
@@ -43,6 +43,14 @@ nav ul {
   gap: 25px;
   padding: 50px;
   margin: 0;
+}
+
+p {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  max-width: 500px;
+  margin-top: 20px;
 }
 
 a {

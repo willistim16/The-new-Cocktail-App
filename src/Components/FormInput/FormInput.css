@@ -1,0 +1,17 @@
+.logInInputField {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+
+.logInInputField input {
+    width: 300px;
+    background-color: navajowhite;
+    color: orangered;
+    border: none;
+    border-radius: 20px;
+    height: 30px;
+    font-size: 20px;
+    padding-left: 10px;
+    justify-self: flex-end;
+}

@@ -1,11 +1,12 @@
 import '/src/Styles/globals.css'
 import {Route, Routes} from "react-router-dom";
-import SearchPage from "./Pages/SearchPage.jsx";
-import HomePage from "./Pages/HomePage.jsx";
-import LogInRegisterPage from "./Pages/LogInRegisterPage.jsx";
-import SingleCocktailPage from "./Pages/SingleCocktailPage.jsx";
-import Favorieten from "./Pages/Favorieten.jsx";
-import AllCocktailPage from "./Pages/AllCocktailPage.jsx";
+import SearchPage from "./Pages/SearchPage/SearchPage.jsx";
+import HomePage from "./Pages/HomePage/HomePage.jsx";
+import LogInRegisterPage from "./Pages/LogInRegisterPage/LogInRegisterPage.jsx";
+import AllCocktailPage from "./Pages/AllCocktailPage/AllCocktailPage.jsx";
+import MijnFavorieten from "./Pages/MijnFavorieten/MijnFavorieten.jsx";
+import AboutPage from "./Pages/AboutPage/AboutPage.jsx";
+import CocktailDetailsPage from "./Pages/CocktailDetailsPage/CocktailDetailsPage.jsx";
 
 function App() {
 
@@ -15,9 +16,10 @@ function App() {
                 <Route path={"/"} element={<HomePage />} />
                 <Route path={"/SearchPage"} element={<SearchPage />} />
                 <Route path={"/LogInRegisterPage"} element={<LogInRegisterPage />} />
-                <Route path={"/SingleCocktailPage/:id"} element={<SingleCocktailPage />} />
-                <Route path={"/Favorieten"} element={<Favorieten />} />
+                <Route path={"/CocktailDetailsPage/:id"} element={<CocktailDetailsPage />} />
+                <Route path={"/MijnFavorieten"} element={<MijnFavorieten />} />
                 <Route path={"/AllCocktailPage"} element={<AllCocktailPage />} />
+                <Route path={"/AboutPage"} element={<AboutPage />} />
             </Routes>
         </>
     )
