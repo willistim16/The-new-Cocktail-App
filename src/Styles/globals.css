@@ -17,14 +17,14 @@ main {
   background-blend-mode: luminosity;
   padding-bottom: 50px;
   width: 100%;
-  flex-grow: 1;
+  flex-grow: 2;
 }
 
 .headerGroupHome {
   background-image: url("/src/assets/Images/Eindopdracht Achtergrondafbeelding voor alle 5 pagina's.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 900px;
+  height: 800px;
   width: 100%;
   background-position: center bottom;
 }
@@ -45,10 +45,18 @@ nav ul {
   margin: 0;
 }
 
+p {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  max-width: 500px;
+  margin-top: 20px;
+}
+
 a {
   cursor: pointer;
   color: darkred;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: Bold;
 }
 

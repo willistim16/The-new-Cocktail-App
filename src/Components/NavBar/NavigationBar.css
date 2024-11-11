@@ -1,0 +1,28 @@
+.navLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 10px 30px;
+    gap: 20px;
+    font-size: 30px;
+}
+
+.modalContentStyle button {
+    width: 250px;
+    height: 50px;
+    font-size: 30px;
+    color: orangered;
+    background-color: navajowhite;
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+}
+
+.button-container a:hover button {
+    background-color: orangered;
+    color: navajowhite;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px 2px gray;
+}
+
+
