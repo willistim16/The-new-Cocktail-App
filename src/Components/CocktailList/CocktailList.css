@@ -1,0 +1,44 @@
+.cocktail-list-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 60px;
+    width: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-top: 40px;
+    /*height: 100%;*/
+}
+
+.found-cocktail-list img {
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/*@media (min-width: 600px) {*/
+    .found-cocktail-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        /*gap: 10px;*/
+    }
+/*}*/
+
+.found-cocktail-list h2 {
+    font-size: 20px;
+    margin-top: 100px;
+}
+
+.found-cocktail-list a {
+    font-size: 25px;
+    text-align: center;
+}
+
+.linkAndReview {
+    padding-top: 20px;
+}

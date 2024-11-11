@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '/src/Components/CocktailDetails/cocktailDetails.css'
 import '/src/Components/Header/Header.css'
+import Rating from "../Rating/Rating.jsx";
 
 const CocktailDetails = () => {
     const {id} = useParams();
@@ -40,37 +41,41 @@ const CocktailDetails = () => {
             if (error) return <div>Error: {error}</div>;
 
             return (
-                <div>
-                    <div className="SingleCocktailPageHeader-container">
-                        <h1>{cocktail.strDrink}</h1>
-                        <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink}/>
+                <>
+                    <div>
+                        <div className="SingleCocktailPageHeader-container">
+                            <h1>{cocktail.strDrink}</h1>
+                            <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink}/>
+                        </div>
+                        <div className="cocktailDetails-container">
+                            <div className="cocktailDetailTiles">
+                                <h3>Category</h3>
+                                <p>{cocktail.strCategory}</p>
+                            </div>
+                            <div className="cocktailDetailTiles">
+                            <h3>Alcoholic</h3>
+                                <p>{cocktail.strAlcoholic}</p>
+                            </div>
+                            <div className="cocktailDetailTiles">
+                            <h3>Ingredients</h3>
+                                <ul>
+                                    {[...Array(15)].map((_, i) => {
+                                        const ingredient = cocktail[`strIngredient${i + 1}`];
+                                        const measure = cocktail[`strMeasure${i + 1}`];
+                                        return ingredient ? <li key={i}>{measure} {ingredient}</li> : null;
+                                    })}
+                                </ul>
+                            </div>
+                            <div className="cocktailDetailIngredients">
+                                <h3>Instructions</h3>
+                                <p>{cocktail.strInstructions}</p>
+                            </div>
+                            <Rating/>
+                        </div>
                     </div>
-                    <div className="cocktailDetails-container">
-                        <div className="cocktailDetailTiles">
-                            <h3>Category</h3>
-                            <p>{cocktail.strCategory}</p>
-                        </div>
-                        <div className="cocktailDetailTiles">
-                        <h3>Alcoholic</h3>
-                            <p>{cocktail.strAlcoholic}</p>
-                        </div>
-                        <div className="cocktailDetailTiles">
-                        <h3>Ingredients</h3>
-                            <ul>
-                                {[...Array(15)].map((_, i) => {
-                                    const ingredient = cocktail[`strIngredient${i + 1}`];
-                                    const measure = cocktail[`strMeasure${i + 1}`];
-                                    return ingredient ? <li key={i}>{measure} {ingredient}</li> : null;
-                                })}
-                            </ul>
-                        </div>
-                        <div className="cocktailDetailIngredients">
-                            <h3>Instructions</h3>
-                            <p>{cocktail.strInstructions}</p>
-                        </div>
-                    </div>
-                </div>
+                </>
             );
+
 }
 
 export default CocktailDetails;

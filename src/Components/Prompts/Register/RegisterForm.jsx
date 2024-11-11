@@ -1,7 +1,7 @@
-import FormInput from '/src/Components/FormInput/FormInput.jsx';
-import { registerUser } from '/src/services/authServices.jsx';
+import FormInput from '/src/Components/FormInput/PrompterInput.jsx';
 import {useState} from "react";
 import '/src/Components/Prompts/styles/Prompter.css'
+import {registerUser} from "../../../services/authServices.jsx";
 
 
 const RegisterForm = () => {
@@ -46,18 +46,29 @@ const RegisterForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         if (!validateForm()) return;
 
+        const userData = {
+            username: formData.username,
+            email: formData.email,
+            password: formData.password,
+            authorities: [
+                { authority: "USER" },
+            ],
+        };
+
         try {
-            await registerUser(formData);
-            setSuccessMessage('Registration successful!');
-            setErrorMessage('');
+            // Send registration request to backend
+            await registerUser(userData);
+            setSuccessMessage("Registration successful!");
+            setErrorMessage("");
         } catch (error) {
             setErrorMessage(error);
-            setSuccessMessage('');
+            setSuccessMessage("");
         }
+        console.log(registerUser)
     };
+
 
     const handleClose = () => {
         setIsModalOpen(false); // Close the modal
@@ -67,13 +78,15 @@ const RegisterForm = () => {
 
     return (
         <div>
-            <button onClick={handleClick}>Register</button>
+        <div className="openRegisterButton">
+            <button onClick={handleClick}>Registreren</button>
+        </div>
 
             {isModalOpen && (
                 <div className="modalStyle">
-                        <h2>Registreren</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="modalContentStyle">
+                            <h2>Registreren</h2>
                             <FormInput
                                 label="Username: "
                                 name="username"
@@ -108,7 +121,7 @@ const RegisterForm = () => {
                             />
                             <div className="buttonsPrompt">
                                 <button type="submit">Registreren</button>
-                                <button type="button" onClick={handleClose}>Cancel</button>
+                                <button type="button" onClick={handleClose}>Annuleren</button>
                             </div>
                         </div>
                     </form>

@@ -1,36 +1,11 @@
 import {useEffect, useState} from "react";
 import '/src/Components/AllCocktails/AllCocktails.css'
+import Rating from "../Rating/Rating.jsx";
 
 const AllCocktails = () => {
-    // const {id} = useParams();
-    const [allCocktails, setAllCocktails] = useState([]);
+    const [allCocktails, setAllCocktails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
-    // useEffect(() => {
-    //     const fetchAllCocktails = async () => {
-    //         try {
-    //             const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic`);
-    //             if (!response.ok) {
-    //                 return Error('Failed to fetch cocktail details');
-    //             } else {
-    //                 const data = await response.json();
-    //                 data.drinks;
-    //                 if (data.drinks && data.drinks.length > 0) {
-    //                     setAllCocktails(data.drinks);
-    //                 } else {
-    //                     setError('Cocktail not found');
-    //                 }
-    //             }
-    //             console.log(response)
-    //         } catch (err) {
-    //             setError(err.message);
-    //         } finally {
-    //             setLoading(false);
-    //         }
-    //     };
-    //     fetchAllCocktails();
-    // }, []);
 
     useEffect(() => {
         const fetchAllCocktails = async () => {
@@ -39,7 +14,7 @@ const AllCocktails = () => {
                 const nonAlcoholicResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`);
 
                 if (!alcoholicResponse.ok || !nonAlcoholicResponse.ok) {
-                    throw new Error('Failed to fetch cocktail details');
+                    return new Error('Failed to fetch cocktail details');
                 }
 
                 const alcoholicData = await alcoholicResponse.json();
@@ -53,6 +28,7 @@ const AllCocktails = () => {
             }
         };
         fetchAllCocktails();
+        console.log(fetchAllCocktails)
     }, []);
 
     if (loading) return <div>Loading...</div>;
@@ -70,6 +46,9 @@ const AllCocktails = () => {
                                     <h2>{cocktail.strDrink}</h2>
                                     <img alt="AllCocktails" src={cocktail.strDrinkThumb}/>
                                     <a href={`/CocktailDetailsPage/${cocktail.idDrink}`}>Details...</a>
+                                    <div>
+                                        <Rating/>
+                                    </div>
                                 </div>
                                 )
                         }

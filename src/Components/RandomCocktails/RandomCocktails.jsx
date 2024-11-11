@@ -42,7 +42,7 @@ function RandomCocktails() {
                                     {/*</a>*/}
                                 </div>
                                 <div className="MostPopularImage flame-wrapper">
-                                    <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} width="200" />
+                                    <img src={cocktail.strDrinkThumb} loading={"lazy"} alt={cocktail.strDrink} width="200" />
                                 </div>
                             </li>
                         ))}

@@ -24,7 +24,7 @@ main {
   background-image: url("/src/assets/Images/Eindopdracht Achtergrondafbeelding voor alle 5 pagina's.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 900px;
+  height: 800px;
   width: 100%;
   background-position: center bottom;
 }
@@ -56,7 +56,7 @@ p {
 a {
   cursor: pointer;
   color: darkred;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: Bold;
 }
 

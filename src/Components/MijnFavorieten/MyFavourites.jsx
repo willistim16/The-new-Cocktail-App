@@ -2,10 +2,13 @@ import '/src/Components/MijnFavorieten/MyFavourites.css'
 
 
 function MyFavourites({ favourites, removeFavourite }) {
+
+    const safeFavourites = Array.isArray(favourites) ? favourites : [];
+
     return (
         <div>
             <h1>My Favourites</h1>
-            {favourites.length > 0 ? (
+            {safeFavourites.length > 0 ? (
                 favourites.map((cocktail) => (
                     <div key={cocktail.idDrink}>
                         <h2>{cocktail.strDrink}</h2>

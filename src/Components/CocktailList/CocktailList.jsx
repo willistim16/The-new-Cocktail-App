@@ -1,24 +1,45 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
 
-// eslint-disable-next-line react/prop-types
-function CocktailList({ cocktails }) {
-    // eslint-disable-next-line react/prop-types
-    if (cocktails.length === 0) {
-        return <div>No cocktails found.</div>;
-    }
+import '/src/Components/CocktailList/CocktailList.css'
+import Rating from "../Rating/Rating.jsx";
+import CocktailCard from "../CocktailCard/CocktailCard.jsx";
+import {useFavourites} from "../../FavouritesContext/FavouritesContext.jsx";
 
-    return (
-        <div>
-            {/* eslint-disable-next-line react/prop-types */}
-            {cocktails.map((cocktail) => (
-                <div key={cocktail.idDrink} style={{ margin: '20px 0' }}>
-                    <h2>{cocktail.strDrink}</h2>
-                    <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} style={{ width: '100px', height: '100px' }} />
+function CocktailList({cocktails}) {
+    const { favourites, addFavourite, removeFavourite } = useFavourites();
+
+    const toggleFavourite = (cocktail) => {
+        if (favourites.some((fav) => fav.idDrink === cocktail.idDrink)) {
+            removeFavourite(cocktail.idDrink);
+        } else {
+            addFavourite(cocktail);
+            console.log("Current favourites:", favourites);
+        }
+    };
+
+        const safeCocktails = Array.isArray(cocktails) ? cocktails : [];
+
+        return (
+            <>
+                <div className="cocktail-list-container">
+                    {safeCocktails.map((cocktail) => (
+                        <div className="found-cocktail-list" key={cocktail.idDrink}>
+                            <h2>{cocktail.strDrink}</h2>
+                            <img src={cocktail.strDrinkThumb} loading={"lazy"} alt={cocktail.strDrink}/>
+                            <div className="linkAndReview">
+                                <a href={`/CocktailDetailsPage/${cocktail.idDrink}`}>Bekijk details</a>
+                                <Rating/>
+                                <CocktailCard
+                                    key={cocktail.idDrink}
+                                    cocktail={cocktail}
+                                    isFavourite={favourites.includes(cocktail.idDrink)}
+                                    onFavouriteToggle={() => toggleFavourite(cocktail.idDrink)} // Pass toggle function
+                                />
+                            </div>
+                        </div>
+                    ))}
                 </div>
-            ))}
-        </div>
-    );
-}
+            </>
+        );
+    }
 
 export default CocktailList;

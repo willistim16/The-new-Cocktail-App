@@ -3,7 +3,8 @@ import '/src/Styles/globals.css'
 import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
 import RandomCocktails from "../../Components/RandomCocktails/RandomCocktails.jsx";
-
+import ProtectedLink from "../../Components/ProtectedLink/ProtectedLink.jsx";
+import {Link} from "react-router-dom";
 function Home() {
     return (
         <>
@@ -23,7 +24,9 @@ function Home() {
                 </div>
                 <div className="paginaUitleg-container">
                     <div className="paginaUitleg">
-                        <h3><a href="/SearchPage/SearchPage">Cocktails Zoeken</a></h3>
+                        <ProtectedLink>
+                        <h3><Link to= "/SearchPage">Cocktails Zoeken</Link></h3>
+                        </ProtectedLink>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cum eligendi, et labore
                             libero obcaecati sint? Aliquam amet, animi consequuntur distinctio illo illum iure
@@ -32,7 +35,9 @@ function Home() {
                         </p>
                     </div>
                     <div className="paginaUitleg">
-                        <h3><a href="/src/Pages/MijnFavorieten/MijnFavorieten">Mijn Favorieten</a></h3>
+                        <ProtectedLink>
+                        <h3><Link to="/MijnFavorieten">Mijn Favorieten</Link></h3>
+                        </ProtectedLink>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cum eligendi, et labore
                             libero obcaecati sint? Aliquam amet, animi consequuntur distinctio illo illum iure
@@ -41,7 +46,7 @@ function Home() {
                         </p>
                     </div>
                     <div className="paginaUitleg">
-                        <h3><a href="/LogInRegisterPage/LogInRegisterPage">Inloggen & Registreren</a></h3>
+                        <h3><Link to="/LogIn&RegisterPage">Inloggen & Registreren</Link></h3>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cum eligendi, et labore
                             libero obcaecati sint? Aliquam amet, animi consequuntur distinctio illo illum iure

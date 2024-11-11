@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import FormInput from '/src/Components/FormInput/FormInput.jsx';
-import { loginUser } from '/src/services/authServices';
-import '/src/Components/Prompts/styles/Prompter.css'
+import useAuth from '/src/helpers/useAuth.js'
+import {useLocation, useNavigate} from "react-router-dom";
+import PrompterInput from "/src/Components/FormInput/PrompterInput.jsx";
+import "/src/Components/Prompts/styles/Prompter.css"
 
-const LoginForm = () => {
+function LoginPrompter() {
+    const { login } = useAuth();
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -13,9 +15,11 @@ const LoginForm = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const navigate = useNavigate(); // Initialize navigate
+    const location = useLocation(); // Initialize location
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-        console.log(handleChange)
     };
 
     const validateForm = () => {
@@ -24,26 +28,47 @@ const LoginForm = () => {
         if (!formData.password) newErrors.password = 'Password is required';
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
-    };
 
+    };
+    // console.log(validateForm)
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!validateForm())
+        if (!validateForm()) return;
 
-            return;
+        const loginData = {
+            username: formData.username,
+            password: formData.password,
+        };
 
         try {
-            const response = await loginUser(formData);
-            setSuccessMessage('Login successful!');
-            setErrorMessage('');
-            console.log(response); // You may also want to store a token or update the app state here
-        } catch (error) {
-            setErrorMessage(error);
-            setSuccessMessage('');
-        }
-    };
+            const result = await login(loginData);
 
-    const handleLoginClick = () => {
+            if (result.success) {
+                setSuccessMessage("Login successful!");
+                setErrorMessage("");
+                handleClose()
+
+                setTimeout(() => {
+                    const from = location.state?.from?.pathname || '/';
+                    navigate(from, { replace: true });
+                }, 1000); // Adjust delay as needed
+
+            } else {
+                setErrorMessage(result.message || 'An error occurred');
+                setSuccessMessage("");
+            }
+
+        } catch (error) {
+            console.error("Login error:", error);
+            setErrorMessage(error.message || "Login failed. Please try again.");
+            setSuccessMessage("");
+        }
+        console.log(handleSubmit)
+    };
+        console.log(login);
+
+
+    const handleClick = () => {
         setIsModalOpen(true); // Open the modal
     };
 
@@ -51,16 +76,21 @@ const LoginForm = () => {
         setIsModalOpen(false); // Close the modal
     };
 
+
+
     return (
         <div>
-            <button onClick={handleLoginClick}>Inloggen</button>
+            <div className="openLoginButton">
+                <button onClick={handleClick}>Inloggen</button>
+            </div>
+
 
             {isModalOpen && (
                 <div className="modalStyle">
-                    <h2>Inloggen</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="modalContentStyle">
-                            <FormInput
+                            <h2>Inloggen</h2>
+                            <PrompterInput
                                 label="Username"
                                 name="username"
                                 type="text"
@@ -68,7 +98,7 @@ const LoginForm = () => {
                                 onChange={handleChange}
                                 error={errors.username}
                             />
-                            <FormInput
+                            <PrompterInput
                                 label="Password"
                                 name="password"
                                 type="password"
@@ -76,19 +106,19 @@ const LoginForm = () => {
                                 onChange={handleChange}
                                 error={errors.password}
                             />
-                            <div>
+                            <div className="buttonsPrompt">
                                 <button type="submit">Login</button>
-                                <button type="button" onClick={handleClose}>Cancel</button>
+                                <button type="button" onClick={handleClose}>Annuleren</button>
                             </div>
                         </div>
                     </form>
                 </div>
             )}
 
-                    {successMessage && <p style={{color: 'green' }}>{successMessage}</p>}
-            {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+            {successMessage && <p style={{color: 'green'}}>{successMessage}</p>}
+            {errorMessage && <p style={{color: 'red'}}>{errorMessage}</p>}
         </div>
-    );
+    )
 };
 
-export default LoginForm;
+export default LoginPrompter;

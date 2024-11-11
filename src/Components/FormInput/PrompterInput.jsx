@@ -1,6 +1,6 @@
-import '/src/Components/FormInput/FormInput.css'
+import '/src/Components/FormInput/PrompterInput.css'
 
-const FormInput = ({ label, name, value, onChange, type = 'text', error }) => (
+const PrompterInput = ({ label, name, value, onChange, type = 'text', error }) => (
 
     <div className="logInInputField">
         <label>{label}</label>
@@ -9,4 +9,4 @@ const FormInput = ({ label, name, value, onChange, type = 'text', error }) => (
     </div>
 );
 
-export default FormInput;
+export default PrompterInput;

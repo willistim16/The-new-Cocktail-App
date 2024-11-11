@@ -21,6 +21,7 @@
     border-radius: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     height: 400px;
+    width: 800px;
 }
 
 .modalContentStyle button {
@@ -28,4 +29,26 @@
     color: orangered;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin: 20px;
+}
+
+.openLoginButton button {
+    width: 250px;
+    height: 50px;
+    font-size: 30px;
+    color: orangered;
+    background-color: navajowhite;
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+}
+
+.openRegisterButton button {
+    width: 250px;
+    height: 50px;
+    font-size: 30px;
+    color: orangered;
+    background-color: navajowhite;
+    border-radius: 30px;
+    border: none;
+    text-align: center;
 }
