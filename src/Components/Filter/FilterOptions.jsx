@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import '/src/Components/Filter/FilterOptions.css'
+import '/src/Pages/SearchPage/searchPage.css'
+import { motion } from "framer-motion";
 
 const FilterOptions = ({ onFilterChange }) => {
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -19,8 +20,13 @@ const FilterOptions = ({ onFilterChange }) => {
         onFilterChange({ selectedCategory: '', selectedGlass: '', selectedIngredient: '', isAlcoholic: "Alcoholic" });
     };
 
-    const handleFilterChange = () => {
-        onFilterChange({selectedCategory, selectedGlass, selectedIngredient, isAlcoholic});
+    const handleFilterChange = (newAlcoholicState = isAlcoholic) => {
+        onFilterChange({
+            selectedCategory,
+            selectedGlass,
+            selectedIngredient,
+            isAlcoholic: newAlcoholicState,
+        });
     };
 
     const handleKeyDown = (event) => {
@@ -48,18 +54,39 @@ const FilterOptions = ({ onFilterChange }) => {
     };
 
     const toggleAlcoholic = () => {
-        setIsAlcoholic(prev => (prev === "Alcoholic" ? "Non_Alcoholic" : "Alcoholic"));
-        handleFilterChange();
+        setIsAlcoholic((prev) => {
+            const newAlcoholicState = prev === "Alcoholic" ? "Non_Alcoholic" : "Alcoholic";
+            handleFilterChange(newAlcoholicState);
+            return newAlcoholicState;
+        });
     };
-    console.log(toggleAlcoholic)
+
+
 
     return (
         <div>
             <div className="filter-options">
                 <div className="filter-option">
-                    <button onClick={toggleCategory}>
+                    <motion.button
+                        onClick={toggleAlcoholic}
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                        transition={{type: "spring", stiffness: 300}}
+                    >
+                        {isAlcoholic === "Alcoholic" ? 'Alcoholic' : 'Non-alcoholic'}
+                    </motion.button>
+                </div>
+            </div>
+            <div className="filter-options">
+                <div className="filter-option">
+                    <motion.button
+                        onClick={toggleCategory}
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                        transition={{type: "spring", stiffness: 300}}
+                    >
                         Category {selectedCategory}
-                    </button>
+                    </motion.button>
                     <select
                         name="selectedCategory"
                         value={selectedCategory}
@@ -69,15 +96,20 @@ const FilterOptions = ({ onFilterChange }) => {
                         }}
                         onKeyDown={handleKeyDown}
                     >
-                        <option value="">...</option>
+                        <option value="">Find your best cocktail category</option>
                         <option value="Ordinary Drink">Ordinary Drink</option>
                         <option value="Cocktail">Cocktail</option>
                     </select>
                 </div>
                 <div className="filter-option">
-                    <button onClick={toggleGlass}>
+                    <motion.button
+                        onClick={toggleGlass}
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                        transition={{type: "spring", stiffness: 300}}
+                    >
                         Glass type {selectedGlass}
-                    </button>
+                    </motion.button>
                     <select
                         name="selectedGlass"
                         value={selectedGlass}
@@ -87,22 +119,20 @@ const FilterOptions = ({ onFilterChange }) => {
                         }}
                         onKeyDown={handleKeyDown}
                     >
-                        <option value="">...</option>
+                        <option value="">Find your type of cocktail glass</option>
                         <option value="Cocktail glass">Cocktail glass</option>
                         <option value="Highball glass">Highball glass</option>
                     </select>
                 </div>
-            </div>
-            <div className="filter-options">
                 <div className="filter-option">
-                    <button onClick={toggleAlcoholic}>
-                        {isAlcoholic === "Alcoholic" ? 'Alcoholic' : 'Non-alcoholic'}
-                    </button>
-                </div>
-                <div className="filter-option">
-                    <button onClick={toggleIngredient}>
+                    <motion.button
+                        onClick={toggleIngredient}
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                        transition={{type: "spring", stiffness: 300}}
+                    >
                         Ingredient {selectedIngredient}
-                    </button>
+                    </motion.button>
                     <input
                         placeholder="Type ingredient here..."
                         name="selectedIngredient"

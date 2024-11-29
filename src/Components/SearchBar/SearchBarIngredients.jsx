@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { searchCocktailsByIngredient } from '/src/services/cocktailService.jsx';
 import CocktailList from '/src/Components/CocktailList/CocktailList.jsx';
-import '/src/Components/SearchBar/SearchBar.css';
+import '/src/Pages/SearchPage/searchPage.css'
 
 function SearchBarIngredients() {
     const [searchTerm, setSearchTerm] = useState('');

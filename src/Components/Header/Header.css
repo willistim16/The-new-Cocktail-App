@@ -1,7 +1,19 @@
-.HeaderAllPages {
+.header-all-pages {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    margin: 15px auto 50px 750px;
+    padding: 200px 50px 50px 500px;
+}
+
+@media (max-width: 768px) {
+    .header-all-pages {
+        margin: 15px auto 50px 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-all-pages {
+        margin: 15px auto 50px 20px;
+    }
 }

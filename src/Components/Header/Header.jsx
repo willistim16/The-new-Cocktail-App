@@ -2,12 +2,13 @@ import NavigationBar from "../NavBar/NavigationBar.jsx";
 import '/src/Components/Header/Header.css'
 
 
+
 function Header ({content, title}) {
 
     return (
-        <div className="headerGroupHome">
+        <div className="header-group-home">
             <NavigationBar />
-            <div className="HeaderAllPages">
+            <div className="header-all-pages">
                 <h1>
                     {title}
                 </h1>

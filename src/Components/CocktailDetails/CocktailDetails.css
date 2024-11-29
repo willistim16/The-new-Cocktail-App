@@ -1,0 +1,133 @@
+.single-cocktail-page-header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+    padding-top: 40px;
+}
+
+.cocktail-details-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+    width: 100%;
+    padding: 40px;
+}
+
+.cocktail-details-container h3 {
+    font-size: 30px;
+    color: darkblue;
+    text-decoration: underline;
+}
+
+.detail-tiles ul {
+    list-style: none;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.cocktail-detail-tiles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    width: 20%;
+}
+
+.cocktail-details-container h3 {
+    text-decoration: underline;
+    color: indianred;
+}
+
+.single-cocktail-page-header-container img {
+    border-radius: 20%;
+    width: 700px;
+    height: 700px;
+}
+
+.single-cocktail-page-header-container h1 {
+    color: indianred;
+}
+
+.cocktail-details-container p {
+    font-size: 30px;
+}
+
+.cocktail-detail-ingredients p {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.cocktail-detail-ingredients {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .cocktail-details-container {
+        flex-direction: column;
+        gap: 40px;
+        padding: 20px;
+    }
+
+    .cocktail-detail-tiles {
+        width: 40%;
+    }
+
+    .single-cocktail-page-header-container img {
+        width: 500px;
+        height: 500px;
+    }
+
+    .cocktail-details-container h3 {
+        font-size: 25px;
+    }
+
+    .cocktail-details-container p {
+        font-size: 25px;
+    }
+
+    .cocktail-detail-ingredients p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cocktail-details-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 10px;
+    }
+
+    .cocktail-detail-tiles {
+        width: 80%;
+    }
+
+    .single-cocktail-page-header-container img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .cocktail-details-container h3 {
+        font-size: 20px;
+    }
+
+    .cocktail-details-container p {
+        font-size: 20px;
+    }
+
+    .cocktail-detail-ingredients p {
+        font-size: 16px;
+    }
+}
+

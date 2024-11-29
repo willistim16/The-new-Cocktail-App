@@ -2,54 +2,76 @@ import { useState, useEffect } from "react";
 import '/src/Styles/globals.css'
 import '/src/Components/RandomCocktails/RandomCocktails.css'
 import '/src/Pages/HomePage/Home.css'
+import ProtectedLink from "../ProtectedLink/ProtectedLink.jsx";
+import { Link } from 'react-router-dom';
+import useAuth from "../../helpers/useAuth.js";
+
 
 function RandomCocktails() {
     const [cocktails, setCocktails] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { isAuthenticated } = useAuth();
+
     const fetchRandomCocktails = async () => {
         const apiUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-
+        setLoading(true);
         try {
-            const response = await fetch(apiUrl);
-            const data = await response.json();
+            const responses = await Promise.all([
+                fetch(apiUrl),
+                fetch(apiUrl),
+                fetch(apiUrl),
+            ]);
+            const data = await Promise.all(responses.map(response => response.json()));
 
-            // Update state with fetched data
-            setCocktails(data.drinks);
+            const allCocktails = data.flatMap(response => response.drinks);
+            setCocktails(allCocktails);
         } catch (error) {
-            console.error("Error fetching popular cocktails:", error);
+            console.error("Error fetching random cocktails:", error);
         } finally {
             setLoading(false);
         }
     };
 
-    // Fetch data when the component mounts
     useEffect(() => {
         fetchRandomCocktails();
     }, []);
 
     return (
-        <div>
+        <>
+        <div className="MostPopularContainer">
+            <button onClick={fetchRandomCocktails} className="refresh-button">
+                Load New Cocktails
+            </button>
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <div className="MostPopularContainer">
-                    <ul>
-                        {cocktails.map((cocktail) => (
-                            <li key={cocktail.idDrink}>
-                                <div className="MostPopularTitle">
-                                    {/*<a href="">*/}
-                                    <h3>{cocktail.strDrink}</h3>
-                                    {/*</a>*/}
-                                </div>
-                                <div className="MostPopularImage flame-wrapper">
-                                    <img src={cocktail.strDrinkThumb} loading={"lazy"} alt={cocktail.strDrink} width="200" />
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                <ul>
+                    {cocktails.map((cocktail) => (
+                        <li key={cocktail.idDrink}>
+                            <div className="MostPopularTitle">
+                                <h3>{cocktail.strDrink}</h3>
+                            </div>
+                            <div className="MostPopularImage flame-wrapper">
+                                <img src={cocktail.strDrinkThumb} loading="lazy" alt={cocktail.strDrink} width="200"/>
+                            </div>
+
+                            <div className="details-random-container">
+                                <>
+                                {isAuthenticated ? (
+                                <ProtectedLink>
+                                    <Link to={`/CocktailDetailsPage/${cocktail.idDrink}`}>Details</Link>
+                                </ProtectedLink>
+                                ) : (
+                                    <Link to="/LogInRegisterPage">Log in om details te zien</Link>
+                                    )}
+                                    </>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             )}
         </div>
+        </>
     );
 }
 

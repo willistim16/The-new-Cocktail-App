@@ -2,7 +2,8 @@
 import '/src/Components/CocktailList/CocktailList.css'
 import Rating from "../Rating/Rating.jsx";
 import CocktailCard from "../CocktailCard/CocktailCard.jsx";
-import {useFavourites} from "../../FavouritesContext/FavouritesContext.jsx";
+import {useFavourites} from "../../Context/FavouritesContext/FavouritesContext.jsx";
+import SocialMediaButtons from "../SocialMediaButtons/SocialMediaButtons.jsx";
 
 function CocktailList({cocktails}) {
     const { favourites, addFavourite, removeFavourite } = useFavourites();
@@ -25,14 +26,19 @@ function CocktailList({cocktails}) {
                         <div className="found-cocktail-list" key={cocktail.idDrink}>
                             <h2>{cocktail.strDrink}</h2>
                             <img src={cocktail.strDrinkThumb} loading={"lazy"} alt={cocktail.strDrink}/>
-                            <div className="linkAndReview">
+                            <div className="link-and-review">
                                 <a href={`/CocktailDetailsPage/${cocktail.idDrink}`}>Bekijk details</a>
                                 <Rating/>
                                 <CocktailCard
                                     key={cocktail.idDrink}
                                     cocktail={cocktail}
                                     isFavourite={favourites.includes(cocktail.idDrink)}
-                                    onFavouriteToggle={() => toggleFavourite(cocktail.idDrink)} // Pass toggle function
+                                    onFavouriteToggle={() => toggleFavourite(cocktail.idDrink)}
+                                />
+                                <p>Deel je cocktail</p>
+                                <SocialMediaButtons
+                                    cocktailName={cocktail.name}
+                                    cocktailLink={`https://mijncocktailapp.nl/cocktails/${cocktail.id}`}
                                 />
                             </div>
                         </div>

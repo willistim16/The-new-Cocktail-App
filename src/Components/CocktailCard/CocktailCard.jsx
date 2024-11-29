@@ -1,6 +1,6 @@
-import { FaHeart } from 'react-icons/fa';
-import { useFavourites } from '/src/FavouritesContext/FavouritesContext.jsx';
-
+import { useFavourites } from '/src/Context/FavouritesContext/FavouritesContext.jsx';
+import { motion } from 'framer-motion';
+import '/src/Components/CocktailCard/CocktailCard.css'
 
 function CocktailCard({ cocktail }) {
     const { favourites, addFavourite, removeFavourite } = useFavourites();
@@ -14,14 +14,26 @@ function CocktailCard({ cocktail }) {
         }
     };
 
+
+
+    const BouncyButton = () => (
+        <motion.button
+            className="bouncy-button"
+            onClick={handleToggleFavourite}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 300 }}
+        >
+            Voeg toe aan favorieten
+        </motion.button>
+    );
+
     return (
+        <>
         <div className="cocktail-card">
-            <h3>{cocktail.strDrink}</h3>
-            <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-            <div onClick={handleToggleFavourite} className="favourite-icon">
-                <FaHeart color={isFavourite ? 'red' : 'grey'} />
-            </div>
+                <BouncyButton/>
         </div>
+</>
     );
 }
 

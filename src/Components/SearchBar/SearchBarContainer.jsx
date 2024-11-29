@@ -1,8 +1,7 @@
 import {useEffect, useState} from 'react';
 import { searchCocktailsByName } from '/src/services/cocktailService.jsx';
 import CocktailList from '/src/Components/CocktailList/CocktailList.jsx';
-import '/src/Components/SearchBar/SearchBar.css'
-
+import '/src/Pages/SearchPage/searchPage.css'
 
 function SearchBarContainer() {
     const [searchTermName, setSearchTermName] = useState('');
@@ -15,7 +14,7 @@ function SearchBarContainer() {
                 const results = await searchCocktailsByName(searchTermName);
                 setCocktails(results);
             } else {
-                setCocktails([]);  // Clear the list if the search term is empty
+                setCocktails([]);
             }
         };
 
@@ -27,7 +26,7 @@ function SearchBarContainer() {
             const results = await searchCocktailsByName(searchTermName);
             setCocktails(results);
         } else {
-            setCocktails([]);  // Clear the list if the search term is empty
+            setCocktails([]);
         }
     };
 
@@ -35,28 +34,16 @@ function SearchBarContainer() {
 
         <div className="search-container">
             <div className="searchBar-container">
-                <div>
+                <div className="search-option">
                     <input
                         name="name"
                         type="text"
                         placeholder="Search by name"
                         value={searchTermName}
                         onChange={(e) => setSearchTermName(e.target.value)}
-                        // onKeyDown={(e) => handleKeyPress(e, 'name')}
                     />
                     <button onClick={handleSearchByName}>Search</button>
                 </div>
-                {/*<div>*/}
-                {/*    <input*/}
-                {/*        name="ingredient"*/}
-                {/*        type="text"*/}
-                {/*        placeholder="Search by ingredient"*/}
-                {/*        value={searchTermIngredient}*/}
-                {/*        onChange={(e) => setSearchTermIngredient(e.target.value)}*/}
-                {/*        onKeyDown={(e) => handleKeyPress(e, 'ingredient')}*/}
-                {/*    />*/}
-                {/*    <button onClick={handleSearchByIngredient}>Search</button>*/}
-                {/*</div>*/}
             </div>
             {cocktails.length > 0 && <CocktailList cocktails={cocktails}/>}
         </div>

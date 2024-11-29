@@ -1,0 +1,124 @@
+.preferences-container h2 {
+    background-color: navajowhite;
+    text-decoration: underline;
+    font-size: 40px;
+    color: orangered;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.preferences-container {
+    max-width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+.preference-option {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.preference-option label {
+    font-size: 20px;
+    color: orangered;
+    font-weight: bold;
+}
+
+.preference-option select {
+    width: 100px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: navajowhite;
+    font-size: 18px;
+    padding: 5px;
+    font-weight: bold;
+    color: orangered;
+    cursor: pointer;
+    border-style: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.preference-option input[type="checkbox"] {
+    background-color: navajowhite;
+    color: orangered;
+    border-radius: 20%;
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+}
+
+.preference-option option {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    color: orangered;
+    font-weight: bold;
+    border-radius: 40%;
+}
+
+.preference-option select:focus {
+    cursor: pointer;
+    border: none;
+}
+
+@media (max-width: 1024px) {
+    .preferences-container h2 {
+        font-size: 40px;
+    }
+
+    .preferences-container {
+        max-width: 80%;
+    }
+
+    .preference-option label {
+        font-size: 18px;
+    }
+
+    .preference-option select {
+        width: 90px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .preferences-container h2 {
+        font-size: 35px;
+    }
+
+    .preferences-container {
+        max-width: 70%;
+    }
+
+    .preference-option label {
+        font-size: 16px;
+    }
+
+    .preference-option select {
+        width: 80px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .preferences-container h2 {
+        font-size: 30px;
+    }
+
+    .preferences-container {
+        max-width: 90%;
+    }
+
+    .preference-option label {
+        font-size: 14px;
+    }
+
+    .preference-option select {
+        width: 70px;
+        font-size: 12px;
+    }
+}

@@ -1,8 +1,8 @@
-import FormInput from '/src/Components/FormInput/PrompterInput.jsx';
 import {useState} from "react";
 import '/src/Components/Prompts/styles/Prompter.css'
 import {registerUser} from "../../../services/authServices.jsx";
-
+import PrompterInput from "/src/Components/PrompterInput/PrompterInput.jsx";
+import '/src/Components/PrompterInput/PrompterInput.css'
 
 const RegisterForm = () => {
     const [formData, setFormData] = useState({
@@ -78,16 +78,16 @@ const RegisterForm = () => {
 
     return (
         <div>
-        <div className="openRegisterButton">
+        <div className="open-register-button">
             <button onClick={handleClick}>Registreren</button>
         </div>
 
             {isModalOpen && (
-                <div className="modalStyle">
+                <div className="modal-style">
                     <form onSubmit={handleSubmit}>
-                        <div className="modalContentStyle">
+                        <div className="modal-content-style">
                             <h2>Registreren</h2>
-                            <FormInput
+                            <PrompterInput
                                 label="Username: "
                                 name="username"
                                 type="text"
@@ -95,7 +95,7 @@ const RegisterForm = () => {
                                 onChange={handleChange}
                                 error={errors.username}
                             />
-                            <FormInput
+                            <PrompterInput
                                 label="Email: "
                                 name="email"
                                 type="email"
@@ -103,7 +103,7 @@ const RegisterForm = () => {
                                 onChange={handleChange}
                                 error={errors.email}
                             />
-                            <FormInput
+                            <PrompterInput
                                 label="Password: "
                                 name="password"
                                 type="password"
@@ -111,7 +111,7 @@ const RegisterForm = () => {
                                 onChange={handleChange}
                                 error={errors.password}
                             />
-                            <FormInput
+                            <PrompterInput
                                 label="Confirm Password: "
                                 name="confirmPassword"
                                 type="password"
@@ -119,9 +119,13 @@ const RegisterForm = () => {
                                 onChange={handleChange}
                                 error={errors.confirmPassword}
                             />
-                            <div className="buttonsPrompt">
-                                <button type="submit">Registreren</button>
-                                <button type="button" onClick={handleClose}>Annuleren</button>
+                            <div className="buttons-prompt-container">
+                                <div className="button-prompt">
+                                    <button type="submit">Registreren</button>
+                                </div>
+                                <div className="button-prompt">
+                                    <button type="button" onClick={handleClose}>Annuleren</button>
+                                </div>
                             </div>
                         </div>
                     </form>

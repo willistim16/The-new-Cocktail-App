@@ -1,0 +1,132 @@
+.history-outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 50px;
+    padding: 40px 0;
+}
+
+.history-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1500px;
+    padding-bottom: 40px;
+}
+
+.history-container p {
+    max-width: 1200px;
+    font-weight: normal;
+}
+
+.history-outer-container h2 {
+    font-size: 2.5em;
+    color: darkblue;
+    padding: 50px 0;
+}
+
+.history-1,
+.history-image-2,
+.history-image-3,
+.history-image-4,
+.history-image-5,
+.history-image-6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+}
+
+.history-1 {
+    height: 600px;
+    background-image: url("src/assets/Images/history-1.jpg");
+    margin: auto;
+}
+
+.history-image-2 {
+    height: 550px;
+    background-image: url("/src/assets/Images/prohibition of cocktails.webp");
+}
+
+.history-image-3 {
+    height: 500px;
+    background-image: url("/src/assets/Images/glamour50s60s.webp");
+    justify-content: space-evenly;
+}
+
+.history-image-4 {
+    height: 500px;
+    background-image: url("/src/assets/Images/Cocktail renaissance.jpg");
+    border-radius: 25px;
+    background-size: contain;
+}
+
+.history-image-5 {
+    height: 530px;
+    background-image: url("/src/assets/Images/Modern cocktails.jpg");
+    justify-content: space-evenly;
+}
+
+.history-image-6 {
+    height: 500px;
+    background-image: url("/src/assets/Images/glamour50s60s.webp");
+    justify-content: space-evenly;
+}
+
+@media (max-width: 1200px) {
+    .history-1,
+    .history-image-2,
+    .history-image-3,
+    .history-image-5,
+    .history-image-6 {
+        height: 400px;
+    }
+
+    .history-container h2 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .history-1,
+    .history-image-2,
+    .history-image-3,
+    .history-image-4,
+    .history-image-5,
+    .history-image-6 {
+        height: 300px;
+        background-position: center;
+    }
+
+    .history-container p {
+        font-size: 1em;
+    }
+
+    .history-container h2 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .history-1,
+    .history-image-2,
+    .history-image-3,
+    .history-image-4,
+    .history-image-5,
+    .history-image-6 {
+        height: 250px;
+    }
+
+    .history-container h2 {
+        font-size: 1.5em;
+    }
+}
+

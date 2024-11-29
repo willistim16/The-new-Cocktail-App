@@ -1,13 +1,14 @@
 import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
 import SearchBarContainer from "../../Components/SearchBar/SearchBarContainer.jsx";
-import AllCocktails from "../../Components/AllCocktails/AllCocktails.jsx";
-import '/src/Pages/HomePage/Home.css'
 import { getCocktailsByCategory, getCocktailsByGlass, getCocktailsByIngredient } from '/src/services/cocktailService.jsx';
 import axios from "axios";
 import FilterOptions from "../../Components/Filter/FilterOptions.jsx";
 import CocktailList from "../../Components/CocktailList/CocktailList.jsx";
 import {useEffect, useState} from "react";
+import '/src/Pages/HomePage/Home.css'
+import '/src/Pages/SearchPage/searchPage.css'
+import '/src/Styles/globals.css'
 
 
 const SearchPage = () => {
@@ -16,11 +17,12 @@ const SearchPage = () => {
         selectedCategory: '',
         selectedGlass: '',
         selectedIngredient: '',
+        isAlcoholic: 'Alcoholic',
     });
 
 useEffect(() => {
     const fetchFilteredCocktails = async () => {
-        if (!filter.selectedCategory && !filter.selectedGlass && !filter.selectedIngredient) {
+        if (!filter.selectedCategory && !filter.selectedGlass && !filter.selectedIngredient && !filter.isAlcoholic) {
             setCocktails([]);
             return;
         }
@@ -32,8 +34,9 @@ useEffect(() => {
                 response = await getCocktailsByGlass(filter.selectedGlass);
             } else if (filter.selectedIngredient) {
                 response = await getCocktailsByIngredient(filter.selectedIngredient);
-            } else {
-                response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic');
+            } else if (filter.isAlcoholic) {
+                const alcoholicFilter = filter.isAlcoholic === "Alcoholic" ? "Alcoholic" : "Non_Alcoholic";
+                response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${alcoholicFilter}`);
             }
             setCocktails(response.data.drinks);
         } catch (error) {
@@ -51,40 +54,40 @@ useEffect(() => {
 
     return (
         <>
-            <div className="headerAllCocktailsPage">
+            <div className="header-search-page">
                 <Header
-                    title="Feel the range of Cocktails!"
+                    title="Taste the range of Cocktails!"
                 />
             </div>
             <main>
-                <div className="search-your-cocktails">
-                <h2>Search your cocktails</h2>
-                </div>
-                <div className="search-buttons-container">
-                    <div>
-                        <SearchBarContainer/>
+                {/*<div className="main-opening-search-page-container">*/}
+                {/*    <div className="cocktail-gif-search-page">*/}
+                {/*        <img src="/src/assets/GIF's/Gif%20margarita-tequila.gif"/>*/}
+                {/*    </div>*/}
+                    <div className="main-openining-search-page-middle">
+                        <div className="search-your-cocktails">
+                            <h2>Search your cocktails</h2>
+                        </div>
+                        <div className="search-buttons-container">
+                            <div className="filter-options2">
+                                <SearchBarContainer/>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="bannerInbetween">
-                    <img alt="banner inbetween" src="/src/assets/Images/Banner.jpg"/>
-                </div>
-                <div className="all-cocktails">
+                {/*</div>*/}
+                <div className="filter-your-cocktails">
                     <h2>Filter your cocktails</h2>
                 </div>
                 <div>
                     <FilterOptions onFilterChange={handleFilterChange}/>
                     <CocktailList cocktails={cocktails}/>
                 </div>
-                <div className="all-cocktails">
-                    <h2>All Cocktails</h2>
-                </div>
-                    <AllCocktails/>
             </main>
             <div>
-            <Footer/>
+                <Footer/>
             </div>
         </>
     )
 }
 
-    export default SearchPage
+export default SearchPage

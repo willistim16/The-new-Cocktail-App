@@ -1,27 +1,24 @@
-import useAuth from '/src/hooks/useAuth.js'; // Import the Auth context
+import useAuth from '/server/useAuth.jsx';
+import { motion } from 'framer-motion';
 
 const LogoutButton = () => {
-    const { logout } = useAuth(); // Get the logout function from AuthContext
+    const { logout } = useAuth();
 
     const handleLogout = () => {
-        logout(); // Trigger logout on click
+        logout();
     };
 
     return (
-        <button onClick={handleLogout} style={buttonStyle}>
-            Logout
-        </button>
+        <motion.button
+            className="bouncy-button"
+            onClick={handleLogout}
+            whileHover={{scale: 1.1}}
+            whileTap={{scale: 0.9}}
+            transition={{type: "spring", stiffness: 300}}
+        >
+            Uitloggen
+        </motion.button>
     );
-};
-
-// Optional styling for the button
-const buttonStyle = {
-    padding: '10px 20px',
-    backgroundColor: '#ff4c4c',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
 };
 
 export default LogoutButton;
