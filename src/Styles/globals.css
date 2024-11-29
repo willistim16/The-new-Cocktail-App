@@ -29,6 +29,7 @@ main {
   height: 650px;
   width: 100%;
   background-position: bottom;
+  margin-top: 0;
 }
 
 h1 {
@@ -99,8 +100,9 @@ footer p {
 
 @media (max-width: 768px) {
   .header-group-home {
-    height: 400px;
+    height: 450px;
     background-position: center;
+    margin-top: 350px;
   }
 
   h1 {

@@ -38,7 +38,7 @@ function RandomCocktails() {
 
     return (
         <>
-        <div className="MostPopularContainer">
+        <div className="random-cocktails-container">
             <button onClick={fetchRandomCocktails} className="refresh-button">
                 Load New Cocktails
             </button>
@@ -48,10 +48,10 @@ function RandomCocktails() {
                 <ul>
                     {cocktails.map((cocktail) => (
                         <li key={cocktail.idDrink}>
-                            <div className="MostPopularTitle">
+                            <div className="random-cocktail-title">
                                 <h3>{cocktail.strDrink}</h3>
                             </div>
-                            <div className="MostPopularImage flame-wrapper">
+                            <div className="random-cocktail-image flame-wrapper">
                                 <img src={cocktail.strDrinkThumb} loading="lazy" alt={cocktail.strDrink} width="200"/>
                             </div>
 

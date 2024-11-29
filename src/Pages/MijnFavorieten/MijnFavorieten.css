@@ -17,14 +17,15 @@
     padding: 20px;
 }
 
-.favo-h1 {
+.favo-h1 h1 {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 140px;
-    font-size: 32px;
+    font-size: 55px;
     text-align: center;
+    color: orangered;
 }
 
 .favourite-item {
@@ -37,6 +38,7 @@
     text-align: center;
     margin: 20px;
     gap: 10px;
+    padding: 40px 0;
 }
 
 .favourite-item-container {
@@ -45,6 +47,24 @@
     justify-content: space-evenly;
     align-content: center;
     width: 100%;
+    margin: 100px 0;
+}
+
+.favourite-item-container button {
+    color: orangered;
+    background-color: navajowhite;
+    border-radius: 25px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 300px;
+    padding: 4px 4px;
+    margin-top: 20px;
+}
+
+.favourite-item-container button:hover {
+    color: navajowhite;
+    background-color: orangered;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .favourite-item img {

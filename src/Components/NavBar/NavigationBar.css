@@ -16,9 +16,11 @@
     background-color: blueviolet;
     position: fixed;
     top: 0;
+    left: 0;
     margin: 0;
     z-index: 1000;
-    padding: 10px;
+    /*padding: 10px;*/
+    box-sizing: border-box;
 }
 
 .nav-ul a {
@@ -39,6 +41,7 @@
         flex-direction: row;
         gap: 20px;
         padding: 10px;
+        text-align: center;
     }
 
     .nav-ul a {
@@ -50,6 +53,7 @@
     .nav-ul {
         flex-direction: column;
         gap: 15px;
+        align-items: center;
     }
 
     .nav-ul a {
@@ -63,7 +67,10 @@
     }
 
     .nav-ul {
+        display: flex;
+        flex-direction: column;
         padding: 10px;
         gap: 10px;
+        align-items: center;
     }
 }

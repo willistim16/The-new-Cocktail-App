@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Pacifico&family=Playwrite+DE+Grund:wght@100..400&display=swap');
 
-.MostPopularContainer {
+.random-cocktails-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,19 +8,19 @@
     margin: 0 auto 50px auto;
 }
 
-.MostPopularContainer ul {
+.random-cocktails-container ul {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 400px;
     font-size: 20px;
     font-weight: bold;
     list-style: none;
     gap: 40px;
 }
 
-.MostPopularImage img {
+.random-cocktail-image img {
     position: relative;
     width: 300px;
     height: 300px;
@@ -29,12 +29,12 @@
     object-fit: cover;
 }
 
-.MostPopularImage {
+.random-cocktail-image {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 400px;
     height: 400px;
 }
 
@@ -72,7 +72,7 @@
     }
 }
 
-.MostPopularTitle {
+.random-cocktail-title {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -105,18 +105,18 @@
 }
 
 @media (max-width: 1024px) {
-    .MostPopularContainer ul {
+    .random-cocktails-container ul {
         flex-direction: column;
         width: 90%;
         font-size: 18px;
     }
 
-    .MostPopularImage {
+    .random-cocktail-image {
         width: 300px;
         height: 300px;
     }
 
-    .MostPopularTitle {
+    .random-cocktail-title {
         font-size: 22px;
         gap: 20px;
     }
@@ -133,18 +133,18 @@
 }
 
 @media (max-width: 768px) {
-    .MostPopularContainer ul {
+    .random-cocktails-container ul {
         flex-direction: column;
         width: 80%;
         font-size: 16px;
     }
 
-    .MostPopularImage {
+    .random-cocktail-image {
         width: 250px;
         height: 250px;
     }
 
-    .MostPopularTitle {
+    .random-cocktail-title {
         font-size: 20px;
         gap: 15px;
     }
@@ -161,18 +161,18 @@
 }
 
 @media (max-width: 480px) {
-    .MostPopularContainer ul {
+    .random-cocktails-containerZ ul {
         flex-direction: column;
         width: 90%;
         font-size: 14px;
     }
 
-    .MostPopularImage {
+    .random-cocktail-image {
         width: 200px;
         height: 200px;
     }
 
-    .MostPopularTitle {
+    .random-cocktail-title {
         font-size: 18px;
         gap: 10px;
     }

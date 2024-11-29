@@ -13,19 +13,19 @@ function Preferences() {
     };
 
     return (
-        <div className="preferences-container">
-            <h2>Voorkeursinstellingen</h2>
-            {/*<img alt="banner inbetween" src="/src/assets/Images/Banner.jpg" className="banner-inbetween"/>*/}
-            <div className="preference-option">
-                <label>Theme:</label>
-                <select
-                    value={preferences.theme}
-                    onChange={handleThemeChange}
-                >
-                    {/*<div className="options-container">*/}
+        <>
+            <div className="preferences-h2">
+                <h2>Voorkeursinstellingen</h2>
+            </div>
+            <div className="preferences-container">
+                <div className="preference-option">
+                    <label>Theme:</label>
+                    <select
+                        value={preferences.theme}
+                        onChange={handleThemeChange}
+                    >
                     <option value="light">Licht</option>
                     <option value="dark">Donker</option>
-                    {/*</div>*/}
                 </select>
             </div>
             <div className="preference-option">
@@ -37,6 +37,7 @@ function Preferences() {
                 />
             </div>
         </div>
+        </>
     );
 }
 

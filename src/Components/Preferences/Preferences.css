@@ -1,4 +1,4 @@
-.preferences-container h2 {
+.preferences-h2 h2 {
     background-color: navajowhite;
     text-decoration: underline;
     font-size: 40px;
@@ -11,6 +11,9 @@
 }
 
 .preferences-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     max-width: 90%;
     margin: auto;
     padding: 20px;
@@ -18,8 +21,11 @@
 
 .preference-option {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 60px;
+    margin: 0 550px 20px;
+
 }
 
 .preference-option label {

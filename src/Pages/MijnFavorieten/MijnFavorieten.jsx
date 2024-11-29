@@ -49,9 +49,6 @@ function MijnFavorieten() {
                                     <div key={cocktail.idDrink} className="favourite-item">
                                         <h2>{cocktail.strDrink}</h2>
                                         <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink}/>
-                                        <button onClick={() => removeFavourite(cocktail.idDrink)}>
-                                            Verwijderen uit favorieten
-                                        </button>
                                         <Rating cocktailId={cocktail.idDrink}/>
                                         <div className="notes-area">
                                             <textarea
@@ -59,6 +56,9 @@ function MijnFavorieten() {
                                                 value={notes[cocktail.idDrink] || ""}
                                                 onChange={(e) => handleNoteChange(cocktail.idDrink, e.target.value)}
                                             />
+                                            <button onClick={() => removeFavourite(cocktail.idDrink)}>
+                                                Verwijderen uit favorieten
+                                            </button>
                                         </div>
                                     </div>))}
                             </div>
