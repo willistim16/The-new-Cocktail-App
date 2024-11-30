@@ -1,4 +1,3 @@
-
 import '/src/Components/CocktailList/CocktailList.css'
 import Rating from "../Rating/Rating.jsx";
 import CocktailCard from "../CocktailCard/CocktailCard.jsx";

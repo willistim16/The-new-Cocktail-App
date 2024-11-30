@@ -11,7 +11,7 @@ export const registerUser = async (userData) => {
                 'X-Api-Key': `${API_KEY}`,
             }});
         console.log(response)
-        return response.data; // Should contain a confirmation message or user data
+        return response.data;
     } catch (error) {
         console.log('Registration error details:', error.response ? error.response.data : error.message);
         console.error("Registration error details:", error);

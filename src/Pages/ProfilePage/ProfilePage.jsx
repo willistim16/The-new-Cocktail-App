@@ -1,4 +1,4 @@
-import useAuth from '/src/helpers/useAuth.js';
+import useAuth from '/server/useAuth.jsx';
 import Header from "../../Components/Header/Header.jsx";
 import '/src/Pages/ProfilePage/ProfilePage.css'
 import Footer from "../../Components/Footer/Footer.jsx";

@@ -18,10 +18,12 @@
 .searchBar-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 100%;
+    height: auto;
     padding-bottom: 40px;
+    gap: 40px;
 }
 
 .searchBar-container input {
@@ -40,10 +42,9 @@
     background-color: orangered;
     color: navajowhite;
     width: 250px;
-    height: 50px;
-    border-radius: 0 30px 30px 0;
-    padding-left: 10px;
-    margin-left: -20px;
+    height: auto;
+    border-radius: 30px;
+    margin-top: 20px;
     font-size: 20px;
     border: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -58,7 +59,7 @@
     border-left: none;
 }
 
-.filter-options {
+.alcoholic-buttons, .filter-options-container {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -66,44 +67,46 @@
     justify-items: center;
     flex-wrap: wrap;
     gap: 200px;
-    height: 100%;
+    /*height: 100%;*/
     padding: 40px;
+    height: auto;
 }
 
-.filter-options button {
-    background-color: orangered;
-    color: navajowhite;
-    width: 250px;
-    height: 50px;
-    border-radius: 30px;
-    padding-left: 10px;
-    margin-left: -20px;
-    font-size: 20px;
-    border: none;
+.filter-options-container button {
+    height: auto;
 }
 
-.filter-options button:hover {
-    background-color: orangered;
-    color: navajowhite;
+.alcoholic-buttons button:hover, .filter-options-container button:hover {
     cursor: pointer;
-    box-shadow: 2px 2px 8px 2px gray;
+    background-color: orangered;
+    color: navajowhite;
+    height: auto;
 }
 
 .filter-option select {
-    background-color: orangered;
-    color: navajowhite;
-    border-radius: 20px;
-    height: 30px;
-    padding: 5px 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: navajowhite;
+    color: orangered;
+    border-radius: 30px;
+    height: auto;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: 2px solid orangered;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-align-last: center;
 }
 
 .filter-option select:hover {
-    background-color: navajowhite;
-    color: orangered;
-    cursor: pointer;
+    background-color: orangered;
+    color: navajowhite;
     box-shadow: 2px 2px 8px 2px gray;
+}
+.filter-option select option {
+    text-align: left;
 }
 
 .filter-option {
@@ -111,8 +114,22 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    width: 300px;
+    width: 350px;
     gap: 30px;
+    height: auto;
+}
+
+.filter-option button {
+    height: auto;
+    width: auto;
+}
+
+.search-option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
 }
 
 .search-option input {
@@ -120,7 +137,7 @@
     color: orangered;
     border-radius: 25px;
     height: 50px;
-    padding: 5px 10px;
+    /*padding: 5px 10px;*/
     border: 2px solid orangered;
 }
 
@@ -128,30 +145,21 @@
     color: orangered;
 }
 
-.filter-option input {
-    background-color: orangered;
-    color: navajowhite;
-    border-radius: 20px;
-    height: 30px;
-    padding: 5px 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border: none;
-}
-
 .filter-option input::placeholder {
     color: navajowhite;
 }
 
-.filter-option button {
+.alcoholic-buttons button, .filter-options-container button {
     width: 350px;
-    height: 50px;
+    height: auto;
     font-size: 30px;
     color: orangered;
     background-color: navajowhite;
     border-radius: 30px;
-    border: none;
+    border: 2px solid orangered;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 4px 6px;
 }
 
 .main-opening-search-page-container {
@@ -183,12 +191,12 @@
         margin: 10px 0;
     }
 
-    .filter-options {
+    .alcoholic-buttons {
         gap: 50px;
         padding: 20px;
     }
 
-    .filter-options button {
+    .alcoholic-buttons button {
         width: 200px;
         font-size: 18px;
     }
@@ -217,12 +225,12 @@
         height: 45px;
     }
 
-    .filter-options {
+    .alcoholic-buttons {
         gap: 20px;
         padding: 15px;
     }
 
-    .filter-options button {
+    .alcoholic-buttons button {
         width: 180px;
         font-size: 16px;
     }

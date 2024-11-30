@@ -38,17 +38,10 @@
 }
 
 .button-prompt button:hover {
-    width: 200px;
-    height: 40px;
-    font-size: 30px;
-    color: navajowhite;
-    background-color: orangered;
-    border-radius: 30px;
-    border: none;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    gap: 20px;
     cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: orangered;
+    color: navajowhite;
 }
 
 .buttons-prompt-container {

@@ -6,7 +6,6 @@ import axios from "axios";
 import FilterOptions from "../../Components/Filter/FilterOptions.jsx";
 import CocktailList from "../../Components/CocktailList/CocktailList.jsx";
 import {useEffect, useState} from "react";
-import '/src/Pages/HomePage/Home.css'
 import '/src/Pages/SearchPage/searchPage.css'
 import '/src/Styles/globals.css'
 
@@ -47,8 +46,8 @@ useEffect(() => {
     fetchFilteredCocktails();
     }, [filter]);
 
-    const handleFilterChange = (newFilter) => {
-        setFilter(newFilter);
+    const handleFilterChange = (filteredCocktails) => {
+        setCocktails(filteredCocktails);
     };
 
 
@@ -60,26 +59,12 @@ useEffect(() => {
                 />
             </div>
             <main>
-                {/*<div className="main-opening-search-page-container">*/}
-                {/*    <div className="cocktail-gif-search-page">*/}
-                {/*        <img src="/src/assets/GIF's/Gif%20margarita-tequila.gif"/>*/}
-                {/*    </div>*/}
-                    <div className="main-openining-search-page-middle">
-                        <div className="search-your-cocktails">
-                            <h2>Search your cocktails</h2>
-                        </div>
-                        <div className="search-buttons-container">
-                            <div className="filter-options2">
-                                <SearchBarContainer/>
-                            </div>
-                        </div>
-                    </div>
-                {/*</div>*/}
-                <div className="filter-your-cocktails">
-                    <h2>Filter your cocktails</h2>
+                <div className="search-your-cocktails">
+                    <h2>Search your cocktails</h2>
                 </div>
+                    <SearchBarContainer/>
                 <div>
-                    <FilterOptions onFilterChange={handleFilterChange}/>
+                    <FilterOptions onFilterChange={handleFilterChange} setFilter={setFilter} />
                     <CocktailList cocktails={cocktails}/>
                 </div>
             </main>
@@ -90,4 +75,4 @@ useEffect(() => {
     )
 }
 
-export default SearchPage
+export default SearchPage;

@@ -6,11 +6,6 @@
     height: 200px;
 }
 
-.buttons-login-register-page button {
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 5px;
-}
 
 @media (max-width: 1024px) {
     .buttons-login-register-page {
