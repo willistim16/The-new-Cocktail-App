@@ -8,8 +8,11 @@ function SingleCocktailPage() {
 
     return (
         <>
-            <div className="SingleCocktailPageHeader">
-                <Header title="Single cocktail Page" content="Get to know everything there is to know about your favorite cocktail!"/>
+            <div className="single-cocktail-page-header">
+                <Header
+                    title="Single cocktail Page"
+                    content="Get to know everything there is to know about your favorite cocktail!"
+                />
             </div>
             <main>
                 <CocktailDetails />

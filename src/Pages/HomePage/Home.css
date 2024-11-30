@@ -1,35 +1,13 @@
-.GlobalHeader p {
-    margin-top: -25px;
-}
-
-.mostPopularContainer p {
-    font-size: 12px;
-}
-
-.MostPopularHome {
+.page-description-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 325px;
-}
-
-image a:hover {
-    cursor: pointer;
-}
-
-.paginaUitleg-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
-    margin: 0 200px;
-    gap: 40px;
-    padding-bottom: 30px;
-    height: 400px;
+    padding-bottom: 15px;
+    height: 100%;
 }
 
-.paginaUitleg {
+.page-description {
     display: flex;
     flex-direction: column;
     align-content: space-evenly;
@@ -37,42 +15,64 @@ image a:hover {
     width: 400px;
     gap: 40px;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
-.paginaUitleg p {
-    font-size: 15px;
+.page-description p {
+    font-size: 18px;
 }
 
-.paginaUitleg-h2 {
-    text-decoration: underline;
-    font-size: 30px;
-    color: darkred;
+.page-description-tile {
     display: flex;
-    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
-    justify-content: center;
-    height: 50px;
-    padding: 80px 0;
+    width: 100%;
+    padding: 40px 0;
 }
 
-.bannerInbetween img {
-    border-radius: 0;
+.page-description-tile2 {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
     width: 100%;
+}
+
+.page-description-tile img {
+    width: 300px;
     height: 300px;
+    border-radius: 30px;
 }
 
-.bannerInbetween {
+.page-description-tile2 img {
+    width: 400px;
+    height: 400px;
+}
+
+.banner-inbetween {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+    padding: 20px 0;
+}
+
+.small-banner {
+    padding: 40px 0;
+    height: 40px;
+    width: 1400px;
+}
+
+.quiz-h2 h2, .random-cocktails-h2 h2, .page-description-h2 h2 {
+    display: flex;
+    flex-direction: column;
     padding: 80px 0;
+    color: orangered;
+    font-size: 44px;
+    text-decoration: underline;
 }
 
-.HomePageHeader h1 {
-    margin-top: -60px;
-}
-
-.randomCocktails {
+.random-cocktails {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -80,12 +80,125 @@ image a:hover {
     gap: 40px;
 }
 
-.search-buttons-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-    gap: 40px;
-    /*height: 200px;*/
-    flex-wrap: wrap;
+@media (max-width: 1024px) {
+
+    .page-description-container {
+    }
+
+    .page-description {
+        width: 90%;
+        gap: 35px;
+    }
+
+    .page-description p {
+        font-size: 16px;
+    }
+
+    .page-description-tile img {
+        width: 300px;
+        height: 250px;
+        margin-right: 50px;
+    }
+
+    .page-description-tile2 img {
+        width: 300px;
+        height: 250px;
+        margin-left: 50px;
+    }
+
+    .banner-inbetween {
+        height: 80px;
+    }
+
+    .small-banner {
+        height: 35px;
+        width: 100%;
+    }
+
+    .quiz-h2 h2, .random-cocktails-h2 h2, .page-description-h2 h2 {
+        font-size: 36px;
+    }
+
+    .random-cocktails {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-description {
+        width: 80%;
+        padding-top: 30px;
+        gap: 30px;
+    }
+
+    .page-description p {
+        font-size: 14px;
+    }
+
+    .page-description-h2 h2 {
+        font-size: 28px;
+    }
+
+    .page-description-tile img, .page-description-tile2 img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .banner-inbetween {
+        height: 70px;
+    }
+
+    .small-banner {
+        height: 30px;
+        width: 100%;
+    }
+
+    .random-cocktails {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-description-container {
+        gap: 20px;
+    }
+
+    .page-description {
+        width: 90%;
+        gap: 20px;
+    }
+
+    .page-description p {
+        font-size: 12px;
+    }
+
+    .page-description-h2 h2 {
+        font-size: 20px;
+        padding: 50px 0;
+    }
+
+    .page-description-tile img, .page-description-tile2 img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .banner-inbetween {
+        height: 50px;
+    }
+
+    .small-banner {
+        height: 20px;
+        width: 100%;
+    }
+
+    .random-cocktails {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .random-cocktails-container {
+        font-size: 16px;
+        padding-bottom: 20px;
+    }
 }

@@ -1,4 +1,4 @@
-.modalStyle {
+.modal-style {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modalContentStyle {
+.modal-content-style {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -24,14 +24,35 @@
     width: 800px;
 }
 
-.modalContentStyle button {
-    background-color: navajowhite;
+.button-prompt button {
+    width: 200px;
+    height: 40px;
+    font-size: 30px;
     color: orangered;
+    background-color: navajowhite;
+    border-radius: 30px;
+    border: none;
+    text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin: 20px;
+    gap: 20px;
 }
 
-.openLoginButton button {
+.button-prompt button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: orangered;
+    color: navajowhite;
+}
+
+.buttons-prompt-container {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    gap: 100px;
+    padding: 50px 50px 20px 0;
+}
+
+.open-login-button button {
     width: 250px;
     height: 50px;
     font-size: 30px;
@@ -40,9 +61,16 @@
     border-radius: 30px;
     border: none;
     text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.openRegisterButton button {
+.open-login-button button:hover {
+    cursor: pointer;
+    color: navajowhite;
+    background-color: orangered;
+}
+
+.open-register-button button {
     width: 250px;
     height: 50px;
     font-size: 30px;
@@ -51,4 +79,43 @@
     border-radius: 30px;
     border: none;
     text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.open-register-button button:hover {
+    cursor: pointer;
+    color: navajowhite;
+    background-color: orangered;
+}
+
+@media (max-width: 768px) {
+    .modal-content-style {
+        width: 90%;
+    }
+
+    .button-prompt button,
+    .open-login-button button,
+    .open-register-button button {
+        width: 180px;
+        height: 40px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content-style {
+        padding: 15px;
+    }
+
+    .button-prompt button,
+    .open-login-button button,
+    .open-register-button button {
+        width: 160px;
+        height: 35px;
+        font-size: 0.9em;
+    }
+
+    .buttons-prompt-container {
+        gap: 10px;
+    }
 }

@@ -5,10 +5,13 @@ import Footer from "../../Components/Footer/Footer.jsx";
 import RandomCocktails from "../../Components/RandomCocktails/RandomCocktails.jsx";
 import ProtectedLink from "../../Components/ProtectedLink/ProtectedLink.jsx";
 import {Link} from "react-router-dom";
+import CocktailQuiz from "../../Components/CocktailQuiz/CocktailQuiz.jsx";
+
+
 function Home() {
     return (
         <>
-            <div className="HomePageHeader">
+            <div className="home-page-header">
                 <Header
                     title="Welkom!"
                     content="
@@ -19,50 +22,81 @@ function Home() {
                 />
             </div>
             <main>
-                <div className="paginaUitleg-h2">
-                    <h2>Wat kan ik vinden in deze cocktail app</h2>
+                <div className="page-description-h2">
+                    <h2>Wat heeft deze app allemaal te bieden?</h2>
                 </div>
-                <div className="paginaUitleg-container">
-                    <div className="paginaUitleg">
-                        <ProtectedLink>
-                        <h3><Link to= "/SearchPage">Cocktails Zoeken</Link></h3>
-                        </ProtectedLink>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cum eligendi, et labore
-                            libero obcaecati sint? Aliquam amet, animi consequuntur distinctio illo illum iure
-                            laboriosam natus, odit quam qui quibusdam sint, unde! Ab adipisci at dolore doloribus earum
-                            error facilis labore laborum, nam natus nisi nostrum quasi quidem saepe tenetur.
-                        </p>
+
+                <img alt="banner inbetween" src="/src/assets/Images/Banner.jpg" className="banner-inbetween"/>
+
+                <div className="page-description-container">
+                    <div className="page-description-tile">
+                        <div className="page-description">
+                            <ProtectedLink>
+                                <h3><Link to="/SearchPage">Cocktails Zoeken & Filteren</Link></h3>
+                            </ProtectedLink>
+                            <p>
+                                Zoek de lekkerste cocktails op naam en filter de gehele lijst met cocktails op
+                                alcoholisch of non-alcoholisch, welk glas je wilt gebruiken, welke category cocktails je
+                                wilt zien of voer een ingredient in (die je misschien thuis hebt liggen) om te zien
+                                welke cocktails deze bevat.
+                            </p>
+                        </div>
+                        <img src="src/assets/Images/DALL·E 2024-11-28 16.15.52 - An animated depiction of searching for cocktails. The image features a search bar at the top, where the word 'Cocktails' is typed, with an animated co.webp" alt="search-image"/>
                     </div>
-                    <div className="paginaUitleg">
-                        <ProtectedLink>
-                        <h3><Link to="/MijnFavorieten">Mijn Favorieten</Link></h3>
-                        </ProtectedLink>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cum eligendi, et labore
-                            libero obcaecati sint? Aliquam amet, animi consequuntur distinctio illo illum iure
-                            laboriosam natus, odit quam qui quibusdam sint, unde! Ab adipisci at dolore doloribus earum
-                            error facilis labore laborum, nam natus nisi nostrum quasi quidem saepe tenetur.
-                        </p>
+                    <img alt="banner inbetween" src="/src/assets/Images/Banner.jpg" className="banner-inbetween"/>
+
+                    <div className="page-description-tile2">
+                        <div className="page-description">
+                            <ProtectedLink>
+                                <h3><Link to="/MijnFavorieten">Mijn Favorieten</Link></h3>
+                            </ProtectedLink>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cum eligendi, et
+                                labore
+                                libero obcaecati sint? Aliquam amet, animi consequuntur distinctio illo illum iure
+                                laboriosam natus, odit quam qui quibusdam sint, unde! Ab adipisci at dolore doloribus
+                                earum
+                                error facilis labore laborum, nam natus nisi nostrum quasi quidem saepe tenetur.
+                            </p>
+                        </div>
+                        <img src="src/assets/Images/Favorieten.webp" alt="Mijn Favorieten"/>
                     </div>
-                    <div className="paginaUitleg">
-                        <h3><Link to="/LogIn&RegisterPage">Inloggen & Registreren</Link></h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cum eligendi, et labore
-                            libero obcaecati sint? Aliquam amet, animi consequuntur distinctio illo illum iure
-                            laboriosam natus, odit quam qui quibusdam sint, unde! Ab adipisci at dolore doloribus earum
-                            error facilis labore laborum, nam natus nisi nostrum quasi quidem saepe tenetur.
-                        </p>
+
+                    <img alt="banner inbetween" src="/src/assets/Images/Banner.jpg" className="banner-inbetween"/>
+
+                    <div className="page-description-tile">
+                        <div className="page-description">
+                            <h3><Link to="/LogIn&RegisterPage">Inloggen & Registreren</Link></h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cum eligendi, et
+                                labore
+                                libero obcaecati sint? Aliquam amet, animi consequuntur distinctio illo illum iure
+                                laboriosam natus, odit quam qui quibusdam sint, unde! Ab adipisci at dolore doloribus
+                                earum
+                                error facilis labore laborum, nam natus nisi nostrum quasi quidem saepe tenetur.
+                            </p>
+                        </div>
+                        <img src="src/assets/GIF's/gif login.webp" alt="Inloggen"/>
                     </div>
                 </div>
-                <div className="bannerInbetween">
-                    <img alt="banner inbetween" src="/src/assets/Images/Banner.jpg"/>
+
+                <img alt="banner inbetween" src="/src/assets/Images/Banner.jpg" className="banner-inbetween"/>
+
+                <div className="quiz-h2">
+                    <h2>Test jouw cocktail kennis met deze quiz!</h2>
                 </div>
-                    <div className="randomCocktails">
-                        <RandomCocktails/>
-                        <RandomCocktails/>
-                        <RandomCocktails/>
-                    </div>
+                <div>
+                    <CocktailQuiz/>
+                </div>
+
+                <img alt="banner inbetween" src="/src/assets/Images/Banner.jpg" className="banner-inbetween"/>
+
+                <div className="random-cocktails-h2">
+                    <h2>Iedere keer weer een andere cocktail, iedere keer weer een feestje!</h2>
+                </div>
+                <div className="random-cocktails">
+                    <RandomCocktails/>
+                </div>
             </main>
             <Footer/>
         </>

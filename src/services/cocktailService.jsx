@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import allCocktails from "../Components/AllCocktails/AllCocktails.jsx";
 
 const API_URL = 'https://www.thecocktaildb.com/api/json/v1/1';
 
@@ -8,7 +7,6 @@ export const searchCocktailsByName = async (name) => {
         const response = await axios.get(`${API_URL}/search.php?s=${name}`);
         const allCocktails = response.data.drinks;
 
-        // Return the filtered cocktails directly
         return Array.isArray(allCocktails)
             ? allCocktails.filter(cocktail =>
                 cocktail.strDrink.toLowerCase().includes(name.toLowerCase())
@@ -21,14 +19,9 @@ export const searchCocktailsByName = async (name) => {
 };
 
 export const searchCocktailsByIngredient = async (ingredient) => {
-        try {
+    try {
         const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`);
-        const allCocktails = response.data.drinks || [];
-        return allCocktails.filter(cocktail =>
-                cocktail.strIngredient?.toLowerCase().includes(ingredient.toLowerCase())  ||
-                cocktail.strIngredient2?.toLowerCase().includes(ingredient.toLowerCase()) ||
-                cocktail.strIngredient3?.toLowerCase().includes(ingredient.toLowerCase())
-        );
+        return response.data.drinks || [];
     } catch (error) {
         console.error("Error fetching cocktails by ingredient:", error);
         return [];

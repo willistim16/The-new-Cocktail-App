@@ -1,0 +1,118 @@
+.quiz-container {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 10px;
+    text-align: center;
+    background-color: blueviolet;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: black;
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+.option-button {
+    padding: 10px 15px;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+    border: 2px solid orangered;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 400px;
+}
+
+.option-button:hover {
+    background-color: orangered;
+    color: white;
+}
+
+.option-button.correct {
+    background-color: green;
+    color: white;
+}
+
+.option-button.wrong {
+    background-color: red;
+    color: white;
+}
+
+.score-section {
+    color: orangered;
+    font-size: 22px;
+}
+
+.restart-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: orangered;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.restart-button:hover {
+    background-color: orangered;
+}
+
+@media (max-width: 768px) {
+    .quiz-container {
+        max-width: 500px;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .option-button {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .restart-button {
+        font-size: 14px;
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .option-button {
+        width: 100%;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .restart-button {
+        font-size: 14px;
+        width: 100%;
+        padding: 10px;
+    }
+}

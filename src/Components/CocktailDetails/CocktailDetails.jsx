@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import '/src/Components/CocktailDetails/cocktailDetails.css'
+import '/src/Components/CocktailDetails/CocktailDetails.css'
 import '/src/Components/Header/Header.css'
 import Rating from "../Rating/Rating.jsx";
 
@@ -43,20 +43,20 @@ const CocktailDetails = () => {
             return (
                 <>
                     <div>
-                        <div className="SingleCocktailPageHeader-container">
+                        <div className="single-cocktail-page-header-container">
                             <h1>{cocktail.strDrink}</h1>
                             <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink}/>
                         </div>
-                        <div className="cocktailDetails-container">
-                            <div className="cocktailDetailTiles">
+                        <div className="cocktail-details-container">
+                            <div className="cocktail-detail-tiles">
                                 <h3>Category</h3>
                                 <p>{cocktail.strCategory}</p>
                             </div>
-                            <div className="cocktailDetailTiles">
+                            <div className="cocktail-detail-tiles">
                             <h3>Alcoholic</h3>
                                 <p>{cocktail.strAlcoholic}</p>
                             </div>
-                            <div className="cocktailDetailTiles">
+                            <div className="cocktail-detail-tiles">
                             <h3>Ingredients</h3>
                                 <ul>
                                     {[...Array(15)].map((_, i) => {
@@ -66,11 +66,11 @@ const CocktailDetails = () => {
                                     })}
                                 </ul>
                             </div>
-                            <div className="cocktailDetailIngredients">
+                            <div className="cocktail-detail-ingredients">
                                 <h3>Instructions</h3>
                                 <p>{cocktail.strInstructions}</p>
                             </div>
-                            <Rating/>
+                            <Rating cocktailId={id}/>
                         </div>
                     </div>
                 </>

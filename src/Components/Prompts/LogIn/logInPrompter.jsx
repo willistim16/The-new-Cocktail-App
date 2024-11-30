@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import useAuth from '/src/helpers/useAuth.js'
 import {useLocation, useNavigate} from "react-router-dom";
-import PrompterInput from "/src/Components/FormInput/PrompterInput.jsx";
+import PrompterInput from "/src/Components/PrompterInput/PrompterInput.jsx";
 import "/src/Components/Prompts/styles/Prompter.css"
 
 function LoginPrompter() {
@@ -80,15 +80,15 @@ function LoginPrompter() {
 
     return (
         <div>
-            <div className="openLoginButton">
+            <div className="open-login-button">
                 <button onClick={handleClick}>Inloggen</button>
             </div>
 
 
             {isModalOpen && (
-                <div className="modalStyle">
+                <div className="modal-style">
                     <form onSubmit={handleSubmit}>
-                        <div className="modalContentStyle">
+                        <div className="modal-content-style">
                             <h2>Inloggen</h2>
                             <PrompterInput
                                 label="Username"
@@ -106,9 +106,13 @@ function LoginPrompter() {
                                 onChange={handleChange}
                                 error={errors.password}
                             />
-                            <div className="buttonsPrompt">
-                                <button type="submit">Login</button>
-                                <button type="button" onClick={handleClose}>Annuleren</button>
+                            <div className="buttons-prompt-container">
+                                <div className="button-prompt">
+                                    <button type="submit">Login</button>
+                                </div>
+                                <div className="button-prompt">
+                                    <button type="button" onClick={handleClose}>Annuleren</button>
+                                </div>
                             </div>
                         </div>
                     </form>

@@ -8,25 +8,28 @@
 
 body {
   font-family: Arima, sans-serif;
-  width: 100%;
+  width: 100vw;
   margin: 0;
+  overflow-x: hidden;
+  padding: 0;
 }
 
 main {
-  background-color: burlywood;
+  background-color: navajowhite;
   background-blend-mode: luminosity;
   padding-bottom: 50px;
   width: 100%;
   flex-grow: 2;
 }
 
-.headerGroupHome {
-  background-image: url("/src/assets/Images/Eindopdracht Achtergrondafbeelding voor alle 5 pagina's.jpg");
+.header-group-home {
+  background-image: url("/src/assets/Images/Cocktails on the beach.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 800px;
+  height: 650px;
   width: 100%;
-  background-position: center bottom;
+  background-position: bottom;
+  margin-top: 0;
 }
 
 h1 {
@@ -34,30 +37,20 @@ h1 {
   color: indianred;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 25px;
-  padding: 50px;
-  margin: 0;
-}
-
 p {
   font-size: 20px;
   text-align: center;
   font-weight: bold;
   max-width: 500px;
-  margin-top: 20px;
+  margin: 0 auto;
 }
 
 a {
   cursor: pointer;
-  color: darkred;
+  color: orangered;
   font-size: 30px;
-  font-weight: Bold;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 a:hover {
@@ -70,7 +63,7 @@ footer {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  background-color: blue;
+  background-color: blueviolet;
   width: 100%;
   height: 80px;
   color: white;
@@ -78,4 +71,92 @@ footer {
 
 footer p {
   padding-right: 25px;
+}
+
+@media (max-width: 1024px) {
+  .header-group-home {
+    height: 500px;
+    background-position: center;
+  }
+
+  h1 {
+    font-size: 50px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 18px;
+    max-width: 70%;
+  }
+
+  a {
+    font-size: 28px;
+  }
+
+  footer {
+    height: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-group-home {
+    height: 450px;
+    background-position: center;
+    margin-top: 350px;
+  }
+
+  h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 16px;
+    max-width: 80%;
+  }
+
+  a {
+    font-size: 25px;
+  }
+
+  footer {
+    height: 60px;
+    justify-content: center;
+  }
+
+  footer p {
+    padding-right: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-group-home {
+    height: 300px;
+    background-size: cover;
+  }
+
+  h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 14px;
+    max-width: 90%;
+  }
+
+  a {
+    font-size: 20px;
+  }
+
+  footer {
+    height: 50px;
+    font-size: 14px;
+    justify-content: center;
+  }
+
+  footer p {
+    text-align: center;
+  }
 }

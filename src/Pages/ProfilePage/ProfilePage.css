@@ -1,39 +1,147 @@
-.profilePageh1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-size: 50px;
-    height: 200px;
-    color: orangered;
-    font-weight: bold;
-}
-
-.userDataProfilePage {
+.profile-page-container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    font-size: 40px;
-    font-weight: bold;
-    color: darkred;
+    padding: 20px;
 }
 
-.logoutButtonProfilePage {
+.profile-page-h1 h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 65px;
+    height: 200px;
+    color: orangered;
+    font-weight: bold;
+    text-align: center;
+}
+
+.user-data-profile-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    font-size: 40px;
+    font-weight: bold;
+    color: blueviolet;
+    margin: 20px auto 40px auto;
+    text-align: center;
+    border: 2px solid orangered;
+    border-radius: 30px;
+    padding: 20px 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.user-info-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+    width: auto;
+    height: 50px;
+}
+
+.user-info-container h3 {
+    font-size: 30px;
+}
+
+.logout-button-profile-page {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100px;
+    margin: 20px auto;
 }
 
-.logoutButtonProfilePage button {
-    width: 250px;
+.logout-button-profile-page button, .reset-bouncy-button {
+    width: 325px;
     height: 50px;
     font-size: 30px;
+    font-weight: normal;
     color: orangered;
     background-color: navajowhite;
     border-radius: 30px;
-    border: none;
+    border: 2px solid orangered;
     text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.logout-button-profile-page button:hover, .reset-bouncy-button:hover {
+    font-weight: bold;
+    color: orangered;
+    background-color: navajowhite;
+    text-align: center;
+    border-radius: 25px;
+    padding: 4px 7px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+
+
+
+
+
+.header-profile-page h1 {
+    margin-top: 75px;
+}
+
+@media (max-width: 768px) {
+    .profile-page-h1 {
+        font-size: 35px;
+        height: 150px;
+    }
+
+    .user-data-profile-page {
+        font-size: 30px;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .logout-button-profile-page {
+        height: 80px;
+    }
+
+    .logout-button-profile-page button {
+        width: 200px;
+        height: 45px;
+        font-size: 25px;
+    }
+
+    .user-info-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-page-h1 {
+        font-size: 25px;
+        height: 120px;
+    }
+
+    .user-data-profile-page {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .logout-button-profile-page {
+        height: 60px;
+    }
+
+    .logout-button-profile-page button {
+        width: 180px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .user-info-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 }

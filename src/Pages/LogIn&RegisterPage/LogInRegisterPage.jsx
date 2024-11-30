@@ -2,8 +2,9 @@ import Header from "../../Components/Header/Header.jsx";
 import RegisterForm from "../../Components/Prompts/Register/RegisterForm.jsx";
 import LoginPrompter from "../../Components/Prompts/LogIn/logInPrompter.jsx";
 import LogoutButton from "../../Components/LogoutButton/LogoutButton.jsx";
-import useAuth from "../../hooks/useAuth.js";
+import useAuth from "../../../server/useAuth.jsx";
 import "/src/Pages/LogIn&RegisterPage/LogInRegisterPage.css"
+import Footer from "../../Components/Footer/Footer.jsx";
 
 function LogInRegisterPage() {
     const { user, isAuthenticated } = useAuth(); // Now fetching both user and isAuthenticated
@@ -17,7 +18,7 @@ function LogInRegisterPage() {
                 />
             </div>
             <main>
-                <div className="buttonsLogInRegisterPage">
+                <div className="buttons-login-register-page">
                     {isAuthenticated ? (
                         <>
                             <p>Welcome, {user?.username}!</p>
@@ -31,6 +32,7 @@ function LogInRegisterPage() {
                     )}
                 </div>
             </main>
+            <Footer/>
         </>
     );
 }
