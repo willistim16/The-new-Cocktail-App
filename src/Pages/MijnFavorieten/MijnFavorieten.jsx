@@ -10,9 +10,6 @@ import { usePreferences } from "/src/Context/PreferencesContext/PreferencesConte
 function MijnFavorieten() {
 
     const { favourites, removeFavourite } = useFavourites();
-
-    console.log("Current favourites:", favourites);
-
     const { preferences } = usePreferences();
 
     const [notes, setNotes] = useState(() => {

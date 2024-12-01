@@ -1,6 +1,6 @@
 import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
-import SearchBarContainer from "../../Components/SearchBar/SearchBarContainer.jsx";
+import SearchBarContainer from "../../Components/SearchBarContainer/SearchBarContainer.jsx";
 import { getCocktailsByCategory, getCocktailsByGlass, getCocktailsByIngredient } from '/src/services/cocktailService.jsx';
 import axios from "axios";
 import FilterOptions from "../../Components/Filter/FilterOptions.jsx";

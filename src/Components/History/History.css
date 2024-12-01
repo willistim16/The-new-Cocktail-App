@@ -22,11 +22,12 @@
 .history-container p {
     max-width: 1200px;
     font-weight: normal;
+    padding: 0 40px;
 }
 
 .history-outer-container h2 {
     font-size: 2.5em;
-    color: darkblue;
+    color: orangered;
     padding: 50px 0;
 }
 
@@ -81,7 +82,7 @@
     justify-content: space-evenly;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
     .history-1,
     .history-image-2,
     .history-image-3,
@@ -90,8 +91,13 @@
         height: 400px;
     }
 
+    .history-container p {
+        padding-right: 50px;
+    }
+
     .history-container h2 {
         font-size: 2em;
+        padding: 20px 50px;
     }
 }
 
@@ -108,6 +114,7 @@
 
     .history-container p {
         font-size: 1em;
+        padding: 0 30px;
     }
 
     .history-container h2 {
@@ -127,6 +134,11 @@
 
     .history-container h2 {
         font-size: 1.5em;
+    }
+
+    .history-container p {
+        font-size: 1em;
+        padding: 0 20px;
     }
 }
 

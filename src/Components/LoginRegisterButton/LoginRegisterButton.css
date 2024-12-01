@@ -1,7 +1,6 @@
-.logout-button button,
-.bouncy-button {
+.logout-button button {
     font-size: 1.2em;
-    /*font-weight: bold;*/
+    font-weight: bold;
     color: orangered;
     background-color: navajowhite;
     border: none;

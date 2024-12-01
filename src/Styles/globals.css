@@ -34,7 +34,7 @@ main {
 
 h1 {
   font-size: 60px;
-  color: indianred;
+  color: orangered;
 }
 
 p {
@@ -102,7 +102,7 @@ footer p {
   .header-group-home {
     height: 450px;
     background-position: center;
-    margin-top: 350px;
+    margin-top: 320px;
   }
 
   h1 {

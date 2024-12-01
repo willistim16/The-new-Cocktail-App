@@ -30,10 +30,10 @@ function CocktailCard({ cocktail }) {
 
     return (
         <>
-        <div className="cocktail-card">
+            <div className="cocktail-card">
                 <BouncyButton/>
-        </div>
-</>
+            </div>
+        </>
     );
 }
 

@@ -16,6 +16,7 @@ import LogInRegisterPage from "./Pages/LogIn&RegisterPage/LogInRegisterPage.jsx"
 import {useTheme} from "./Context/ThemeContext/ThemeContext.jsx";
 import SettingsPage from "./Pages/SettingsPage/SettingsPage.jsx";
 import PasswordReset from "./Pages/PasswordResetPage/PasswordResetPage.jsx";
+import PasswordResetRequest from "./Components/PasswordResetRequest/PasswordResetRequest.jsx";
 
 const AppContent = () => {
     const { theme } = useTheme();
@@ -28,6 +29,8 @@ const AppContent = () => {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/AboutPage" element={<HistoryPage />} />
                     <Route path="/LogInRegisterPage" element={<LogInRegisterPage />} />
+                    <Route path="/password-reset-request" element={<PasswordResetRequest />} />
+
 
                     <Route element={<ProtectedRoute />}>
                         <Route path="/SearchPage" element={<SearchPage />} />

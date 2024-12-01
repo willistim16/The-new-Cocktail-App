@@ -87,6 +87,35 @@
     color: navajowhite;
 }
 
+@media (max-width: 1024px) {
+    .nog-geen-favorieten {
+        font-size: 40px;
+        height: auto;
+        padding: 20px;
+    }
+
+    .favo-h1 {
+        font-size: 30px;
+        height: auto;
+        padding: 10px;
+    }
+
+    .favourite-item {
+        width: 270px;
+        margin: 15px;
+    }
+
+    .favourite-item-container {
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .notes-area textarea {
+        max-width: 270px;
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 768px) {
     .nog-geen-favorieten {
         font-size: 35px;

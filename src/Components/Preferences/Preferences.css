@@ -13,7 +13,8 @@
 .preferences-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     max-width: 90%;
     margin: auto;
     padding: 20px;
@@ -24,8 +25,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 60px;
-    margin: 0 550px 20px;
-
+    margin: 0 150px 20px;
 }
 
 .preference-option label {
@@ -73,12 +73,16 @@
 }
 
 @media (max-width: 1024px) {
-    .preferences-container h2 {
-        font-size: 40px;
+    .preferences-h2 h2 {
+        font-size: 35px;
     }
 
     .preferences-container {
         max-width: 80%;
+    }
+
+    .preference-option {
+        margin: 0 50px 20px;
     }
 
     .preference-option label {
@@ -92,12 +96,16 @@
 }
 
 @media (max-width: 768px) {
-    .preferences-container h2 {
-        font-size: 35px;
+    .preferences-h2 h2 {
+        font-size: 30px;
     }
 
     .preferences-container {
         max-width: 70%;
+    }
+
+    .preference-option {
+        margin: 0 20px 20px;
     }
 
     .preference-option label {
@@ -111,12 +119,19 @@
 }
 
 @media (max-width: 480px) {
-    .preferences-container h2 {
-        font-size: 30px;
+    .preferences-h2 h2 {
+        font-size: 25px;
     }
 
     .preferences-container {
         max-width: 90%;
+    }
+
+    .preference-option {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin: 0;
     }
 
     .preference-option label {

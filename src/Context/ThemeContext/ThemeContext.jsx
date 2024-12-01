@@ -7,7 +7,6 @@ const ThemeContext = createContext();
 export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(lightTheme);
 
-    // Laad de voorkeur van de gebruiker op uit LocalStorage
     useEffect(() => {
         const savedTheme = localStorage.getItem("appTheme");
         setTheme(savedTheme === "dark" ? darkTheme : lightTheme);
@@ -28,5 +27,5 @@ export const ThemeProvider = ({ children }) => {
     );
 };
 
-// Custom hook om ThemeContext te gebruiken
+// eslint-disable-next-line react-refresh/only-export-components
 export const useTheme = () => useContext(ThemeContext);

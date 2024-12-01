@@ -15,7 +15,7 @@ const RegisterForm = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const handleClick = () => {
-        setIsModalOpen(true); // Open the modal
+        setIsModalOpen(true);
     };
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -58,7 +58,6 @@ const RegisterForm = () => {
         };
 
         try {
-            // Send registration request to backend
             await registerUser(userData);
             setSuccessMessage("Registration successful!");
             setErrorMessage("");
@@ -66,12 +65,11 @@ const RegisterForm = () => {
             setErrorMessage(error);
             setSuccessMessage("");
         }
-        console.log(registerUser)
     };
 
 
     const handleClose = () => {
-        setIsModalOpen(false); // Close the modal
+        setIsModalOpen(false);
     };
 
 

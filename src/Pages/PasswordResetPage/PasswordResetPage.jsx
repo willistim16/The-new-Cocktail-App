@@ -4,6 +4,8 @@ import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
 import '/src/Pages/PasswordResetPage/PasswordResetPage.css';
 
+const API_URL = 'https://api.datavortex.nl/cocktailz';
+
 function PasswordReset() {
     const [searchParams] = useSearchParams();
     const resetToken = searchParams.get("token");
@@ -19,9 +21,10 @@ function PasswordReset() {
             return;
         }
 
-        const API_URL = 'https://api.datavortex.nl/cocktailz'
+
+        const username = 'Username';
         try {
-            const response = await fetch(`${API_URL}/users/{username}/password-reset`, {
+            const response = await fetch(`${API_URL}/users/${username}/password-reset`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ token: resetToken, password }),

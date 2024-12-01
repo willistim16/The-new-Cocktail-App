@@ -45,9 +45,8 @@ const FilterOptions = ({ onFilterChange, setFilter }) => {
 
             const response = await fetch(query);
             const data = await response.json();
-            onFilterChange(data.drinks || []); // Update cocktail list in parent
+            onFilterChange(data.drinks || []);
 
-            // Synchronize the filter state with the parent
             setFilter({
                 selectedCategory: category,
                 selectedGlass: glass,
@@ -74,7 +73,6 @@ const FilterOptions = ({ onFilterChange, setFilter }) => {
             updatedGlass = value;
         }
 
-        // Fetch cocktails with updated filters and sync filter state
         fetchCocktails(updatedCategory, updatedGlass, updatedIsAlcoholic);
     };
 

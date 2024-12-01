@@ -1,4 +1,4 @@
-import { FaTwitter, FaFacebook, FaWhatsapp } from 'react-icons/fa'; // Import icons
+import { FaTwitter, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
 function SocialMediaButtons({ cocktailName, cocktailLink }) {
     const twitterUrl = `https://twitter.com/intent/tweet?text=Check out this cocktail: ${cocktailName}!&url=${cocktailLink}`;
@@ -27,13 +27,13 @@ const styles = {
         justifyContent: 'center',
     },
     icon: {
-        fontSize: '20px', // Adjust icon size
+        fontSize: '20px',
         // color: 'orangered',
         textDecoration: 'none',
         transition: 'transform 0.3s',
     },
     iconHover: {
-        transform: 'scale(1.2)', // Icon animation on hover
+        transform: 'scale(1.2)',
     },
 };
 

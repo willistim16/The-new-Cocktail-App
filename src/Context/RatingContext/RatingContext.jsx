@@ -5,7 +5,7 @@ const RatingContext = createContext();
 
 export const RatingProvider = ({ children }) => {
     const [ratings, setRatings] = useState({});
-    const { token, user } = useAuth(); // Assuming token and user info are in AuthContext
+    const { token, user } = useAuth();
 
     useEffect(() => {
         const fetchRatings = async () => {
@@ -21,7 +21,7 @@ export const RatingProvider = ({ children }) => {
                 if (!response.ok) throw new Error('Failed to fetch ratings');
 
                 const data = await response.json();
-                setRatings(data); // Assuming data is { cocktailId: rating } format
+                setRatings(data);
             } catch (error) {
                 console.error('Error fetching ratings:', error);
             }
@@ -34,7 +34,7 @@ export const RatingProvider = ({ children }) => {
         const updatedRatings = { ...ratings, [cocktailId]: rating };
         setRatings(updatedRatings);
 
-        if (!token) return; // Only save if user is logged in
+        if (!token) return;
 
         try {
             await fetch('/api/ratings', {
@@ -57,4 +57,5 @@ export const RatingProvider = ({ children }) => {
     );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useRating = () => useContext(RatingContext);
