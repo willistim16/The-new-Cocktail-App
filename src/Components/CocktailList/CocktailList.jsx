@@ -12,7 +12,6 @@ function CocktailList({cocktails}) {
             removeFavourite(cocktail.idDrink);
         } else {
             addFavourite(cocktail);
-            console.log("Current favourites:", favourites);
         }
     };
 

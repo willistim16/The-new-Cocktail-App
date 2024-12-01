@@ -24,7 +24,7 @@
 
 .nav-ul a {
     font-size: 20px;
-    color: orange;
+    color: navajowhite;
     text-decoration: none;
 }
 
@@ -53,6 +53,7 @@
         flex-direction: column;
         gap: 15px;
         align-items: center;
+        height: 350px;
     }
 
     .nav-ul a {
@@ -71,5 +72,6 @@
         padding: 10px;
         gap: 10px;
         align-items: center;
+        /*height: 100px;*/
     }
 }

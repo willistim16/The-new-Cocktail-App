@@ -15,8 +15,8 @@ function LoginPrompter() {
     const [errorMessage, setErrorMessage] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const navigate = useNavigate(); // Initialize navigate
-    const location = useLocation(); // Initialize location
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -30,7 +30,6 @@ function LoginPrompter() {
         return Object.keys(newErrors).length === 0;
 
     };
-    // console.log(validateForm)
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validateForm()) return;
@@ -63,20 +62,15 @@ function LoginPrompter() {
             setErrorMessage(error.message || "Login failed. Please try again.");
             setSuccessMessage("");
         }
-        console.log(handleSubmit)
     };
-        console.log(login);
-
 
     const handleClick = () => {
         setIsModalOpen(true); // Open the modal
     };
 
     const handleClose = () => {
-        setIsModalOpen(false); // Close the modal
+        setIsModalOpen(false);
     };
-
-
 
     return (
         <div>

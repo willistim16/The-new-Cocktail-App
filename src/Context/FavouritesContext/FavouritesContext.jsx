@@ -16,7 +16,7 @@ export const FavouritesProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchFavourites = async () => {
-            if (!token || !user?.username) return; // Only fetch if the user is logged in
+            if (!token || !user?.username) return;
             try {
                 const response = await axios.get(`${API_URL}/users/${user.username}/info`, {
                     headers: {
@@ -35,7 +35,6 @@ export const FavouritesProvider = ({ children }) => {
     }, [token, user?.username]);
 
     useEffect(() => {
-        // Save favourites to localStorage on change
         localStorage.setItem('favourites', JSON.stringify(favourites));
     }, [favourites]);
 
@@ -52,7 +51,6 @@ export const FavouritesProvider = ({ children }) => {
                         'Authorization': `Bearer ${token}`,
                         'X-Api-Key': API_KEY,
                     },
-                    // body: JSON.stringify({ cocktail, userId: user.id }),
                 });
             } catch (error) {
                 console.error('Error saving favourite:', error);

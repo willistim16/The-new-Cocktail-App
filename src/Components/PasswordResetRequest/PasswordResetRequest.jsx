@@ -7,12 +7,15 @@ function PasswordResetRequest() {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
+    const API_URL = 'https://api.datavortex.nl/cocktailz';
     const handlePasswordResetRequest = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("/api/password-reset-request", {
+            const response = await fetch(`${API_URL}/users/password-reset-request`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json"
+                },
                 body: JSON.stringify({ email }),
             });
             const data = await response.json();

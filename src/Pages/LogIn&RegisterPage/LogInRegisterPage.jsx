@@ -7,7 +7,7 @@ import "/src/Pages/LogIn&RegisterPage/LogInRegisterPage.css"
 import Footer from "../../Components/Footer/Footer.jsx";
 
 function LogInRegisterPage() {
-    const { user, isAuthenticated } = useAuth(); // Now fetching both user and isAuthenticated
+    const { user, isAuthenticated } = useAuth();
 
     return (
         <>

@@ -81,10 +81,6 @@
 }
 
 @media (max-width: 1024px) {
-
-    .page-description-container {
-    }
-
     .page-description {
         width: 90%;
         gap: 35px;

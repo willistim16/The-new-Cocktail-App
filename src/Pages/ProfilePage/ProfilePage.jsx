@@ -41,7 +41,6 @@ function ProfilePage() {
                             <h3>Email:</h3> <p>{user.email}</p>
                         </div>
                     </div>
-                    {/*<div className="reset-button">*/}
                         <motion.button
                             className="reset-bouncy-button"
                             onClick={handleButtonClick}
@@ -51,7 +50,6 @@ function ProfilePage() {
                         >
                             Wachtwoord resetten
                     </motion.button>
-                    {/*</div>*/}
                     <div className="logout-button-profile-page">
                         <LogoutButton>Uitloggen</LogoutButton>
                     </div>

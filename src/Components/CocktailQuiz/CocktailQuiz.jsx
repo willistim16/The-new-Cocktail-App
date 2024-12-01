@@ -75,7 +75,7 @@ const CocktailQuiz = () => {
             } else {
                 setShowScore(true);
             }
-        }, 1000); // Delay to show the selected answer before moving to the next question
+        }, 1000);
     };
 
     const handleRestart = () => {

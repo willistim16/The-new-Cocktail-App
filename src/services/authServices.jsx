@@ -10,10 +10,8 @@ export const registerUser = async (userData) => {
                 'Content-Type': 'application/json',
                 'X-Api-Key': `${API_KEY}`,
             }});
-        console.log(response)
         return response.data;
     } catch (error) {
-        console.log('Registration error details:', error.response ? error.response.data : error.message);
         console.error("Registration error details:", error);
         throw error.response?.data?.message || 'Registration failed. Please try again.';
     }
@@ -28,7 +26,6 @@ export const loginUser = async (credentials) => {
             },
         });
 
-        console.log("Response data:", response.data);
 
         const { jwt: token } = response.data;
         const userData = response.data.user || { username: 'sampleUser' };

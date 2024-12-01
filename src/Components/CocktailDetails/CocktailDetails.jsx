@@ -25,7 +25,6 @@ const CocktailDetails = () => {
                         setError('Cocktail not found');
                     }
                 }
-                console.log(response)
             } catch (err) {
                 setError(err.message);
             } finally {

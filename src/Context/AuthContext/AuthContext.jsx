@@ -15,14 +15,11 @@ export const AuthProvider = ({ children }) => {
         if (token && storedUser && storedUser !== 'undefined') {
             setUser(JSON.parse(storedUser));
             setIsAuthenticated(true);
-            console.log("User and token loaded from localStorage, authenticated");
         } else {
             localStorage.removeItem('user');
             localStorage.removeItem('token');
             setIsAuthenticated(false);
-            console.log("No valid token found, not authenticated");
         }
-        // console.log(AuthProvider)
         setIsLoading(false);
     }, []);
 
@@ -39,13 +36,10 @@ export const AuthProvider = ({ children }) => {
 
             return { success: true };
 
-
         } catch (error) {
             return { success: false, message: error.message || 'Login failed' };
         }
     };
-
-    console.log(login)
 
     const logout = () => {
         localStorage.removeItem('user');
