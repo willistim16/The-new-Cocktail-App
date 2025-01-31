@@ -1,32 +1,109 @@
-.buttons-login-register-page {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    height: 200px;
+.page-header {
+    background-image: url("/src/assets/Images/cocktail-1803918_1280.webp");
 }
 
+.page-header h1 {
+    margin: 80px 850px 0 -300px;
+    min-width: 500px;
+    text-align: center;
+    color: red;
+}
+
+.login-register-page-text p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
+    height: auto;
+    padding: 10px 20px;
+    margin: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+}
+
+.login-register-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.login-register-page2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 40px
+}
+
+.login-register-page-welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.login-register-page button {
+    width: 250px;
+    height: 50px;
+    font-size: 30px;
+    color: orangered;
+    background-color: navajowhite;
+    border-radius: 30px;
+    border: 2px solid orangered;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    gap: 20px;
+    margin: 30px auto;
+}
+
+.login-register-page button:hover {
+    background-color: orangered;
+    color: navajowhite;
+    cursor: pointer;
+}
+.login-register-page h3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 64px;
+    color: orangered;
+    font-weight: bold;
+    margin: 20px;
+    width: inherit;
+}
+
+.login-register-page p {
+    color: orangered;
+    font-size: 16px;
+}
 
 @media (max-width: 1024px) {
-    .buttons-login-register-page {
+    .login-register-page {
         gap: 30px;
         height: auto;
     }
 
-    .buttons-login-register-page button {
+    .login-register-page button {
         font-size: 16px;
     }
 }
 
 @media (max-width: 768px) {
-    .buttons-login-register-page {
+    .login-register-page {
         flex-direction: column;
         justify-content: center;
         gap: 20px;
         height: auto;
     }
 
-    .buttons-login-register-page button {
+    .login-register-page button {
         width: 80%;
         max-width: 350px;
         font-size: 16px;
@@ -34,7 +111,7 @@
 }
 
 @media (max-width: 480px) {
-    .buttons-login-register-page {
+    .login-register-page {
         flex-direction: column;
         justify-content: center;
         gap: 15px;
@@ -42,7 +119,7 @@
         height: auto;
     }
 
-    .buttons-login-register-page button {
+    .login-register-page button {
         width: 100%;
         max-width: 300px;
         font-size: 14px;

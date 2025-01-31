@@ -18,7 +18,7 @@ const LoginRegisterButton = () => {
                 whileTap={{scale: 0.9}}
                 transition={{type: "spring", stiffness: 300}}
             >
-                Log in & Register
+                Inloggen & registreren
             </motion.button>
         </div>
     );

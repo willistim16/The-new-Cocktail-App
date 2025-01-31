@@ -15,21 +15,29 @@ body {
 }
 
 main {
-  background-color: navajowhite;
   background-blend-mode: luminosity;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
   width: 100%;
   flex-grow: 2;
+  height: auto;
 }
 
 .header-group-home {
-  background-image: url("/src/assets/Images/Cocktails on the beach.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 650px;
-  width: 100%;
-  background-position: bottom;
+  width: 100vw;
+  background-position: center;
   margin-top: 0;
+}
+
+.page-header {
+  color: white;
+  background-size: cover;
+}
+
+.page-header p {
+  max-width: 600px;
 }
 
 h1 {
@@ -41,12 +49,11 @@ p {
   font-size: 20px;
   text-align: center;
   font-weight: bold;
-  max-width: 500px;
+  width: auto;
   margin: 0 auto;
 }
 
 a {
-  cursor: pointer;
   color: orangered;
   font-size: 30px;
   font-weight: bold;
@@ -56,6 +63,32 @@ a {
 a:hover {
   text-decoration: underline;
   color: orangered;
+  cursor: pointer;
+}
+
+.notification {
+  text-align: center;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 3s ease-in-out;
+  /*position: fixed;*/
+  bottom: 20px;
+  /*right: 20px;*/
+  background-color: navajowhite;
+  color: orangered;
+  padding: 10px;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.notification.fade-in {
+  opacity: 1;
+}
+
+.notification.fade-out {
+  opacity: 0;
+  pointer-events: none;
 }
 
 footer {
@@ -71,6 +104,34 @@ footer {
 
 footer p {
   padding-right: 25px;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: orangered;
+  color: navajowhite;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-to-top:hover {
+  background-color: navajowhite;
+  color: orangered;
+}
+
+.back-to-top:focus {
+  outline: none;
 }
 
 @media (max-width: 1024px) {

@@ -26,10 +26,7 @@ const enabledLinkStyle = {
 };
 
 const disabledLinkStyle = {
-    color: 'gray',
-    textDecoration: 'none',
-    cursor: 'not-allowed',
-    opacity: 0.6,
+    opacity: 1,
 };
 
 export default ProtectedLink

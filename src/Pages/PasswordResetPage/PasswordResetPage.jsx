@@ -1,19 +1,21 @@
-import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import {useContext, useState} from "react";
 import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
 import '/src/Pages/PasswordResetPage/PasswordResetPage.css';
+import '/src/Styles/globals.css'
+import axios from "axios";
+import AuthContext from "../../Context/AuthContext/AuthContext.jsx";
+import {useTheme} from "../../Context/ThemeContext/ThemeContext.jsx";
 
 const API_URL = 'https://api.datavortex.nl/cocktailz';
 
 function PasswordReset() {
-    const [searchParams] = useSearchParams();
-    const resetToken = searchParams.get("token");
 
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [message, setMessage] = useState("");
-
+    const token = localStorage.getItem("jwt");
+    const {user} = useContext(AuthContext)
     const handlePasswordReset = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
@@ -21,35 +23,52 @@ function PasswordReset() {
             return;
         }
 
-
-        const username = 'Username';
         try {
-            const response = await fetch(`${API_URL}/users/${username}/password-reset`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ token: resetToken, password }),
+            const response = await axios.put(`${API_URL}/users/${user.username}`, {
+                password: password,
+            },{
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,                }
             });
-            const data = await response.json();
-            if (response.ok) {
-                setMessage("Je wachtwoord is succesvol gereset.");
-            } else {
-                setMessage(data.error || "Er is een fout opgetreden.");
-            }
-            // eslint-disable-next-line no-unused-vars
         } catch (error) {
+            console.error(error)
             setMessage("Kon geen verbinding maken met de server.");
         }
     };
 
+    const { theme } = useTheme();
+
     return (
         <>
-            <div className="header-password-reset-page">
+            <div
+                style={{
+                    backgroundImage: theme.backgroundImage,
+                    backgroundColor: theme.background,
+                    backgroundSize: "cover",
+                    color: "#ffffff",
+                    transition: "background-color 0.3s, color 0.3s",
+                }}
+                className="page-header"
+            >
                 <Header
                     title="Wachtwoord reset"
                 />
             </div>
-            <main>
-                <form className="password-reset-form" onSubmit={handlePasswordReset}>
+            <main
+                style={{
+                    backgroundColor: theme.background,
+                    transition: "background-color 0.3s",
+                }}
+            >
+                <form
+                    style={{
+                    backgroundColor: theme.background,
+                    transition: "background-color 0.3s",
+                }}
+                    className="password-reset-form"
+                    onSubmit={handlePasswordReset}
+                >
                     <label htmlFor="password">Nieuw wachtwoord</label>
                     <input
                         type="password"

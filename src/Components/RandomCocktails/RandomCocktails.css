@@ -77,7 +77,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    height: 50px;
+    height: 100px;
     gap: 40px;
     text-align: center;
     font-family: sans-serif Playwrite+DE+Grund;
@@ -87,18 +87,25 @@
 
 .refresh-button {
     padding: 10px 20px;
-    font-size: 16px;
-    background-color: #ff6b6b;
-    color: black;
+    font-size: 18px;
+    background-color: orangered;
+    color: navajowhite;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
-    margin-bottom: 15px;
-    transition: background-color 0.3s ease;
+    margin-bottom: 25px;
+    width: 300px;
+    height: 50px;
+    transition: background-color 0.1s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .refresh-button:hover {
-    background-color: #ff4c4c;
+    background-color: navajowhite;
+    color: orangered;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .details-random-container {

@@ -26,7 +26,6 @@
 @media (max-width: 480px) {
     .header-all-pages {
         margin: 15px auto;
-        padding: 60px 10px 50px;
-        padding-top: 80px;
+        padding:  60px 10px 50px;
     }
 }

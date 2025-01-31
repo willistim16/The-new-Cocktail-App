@@ -1,17 +1,23 @@
-import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 import Preferences from '../../Components/Preferences/Preferences';
 import './SettingsPage.css';
+import '/src/Styles/globals.css'
+import {useTheme} from "../../Context/ThemeContext/ThemeContext.jsx";
+import NavigationBar from "../../Components/NavBar/NavigationBar.jsx";
 
 function SettingsPage() {
+    const { theme } = useTheme();
+
     return (
         <>
-            <div className="header-settings-page">
-                <Header
-                    title="Instellingen"
-                />
-            </div>
-            <main className="settings-page">
+            <NavigationBar/>
+            <main
+                style={{
+                    backgroundColor: theme.background,
+                    transition: "background-color 0.3s",
+                }}
+                className="settings-page"
+            >
                 <Preferences />
             </main>
             <Footer />

@@ -1,11 +1,37 @@
+.quiz-explination-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 25px;
+    margin: 40px 300px 80px;
+}
+
+.quiz-explination-container h2 {
+    color: orangered;
+}
+
+.quiz-explination-container p {
+    width: 700px;
+}
+
+.veel-plezier {
+    font-size: 25px;
+    color: orangered;
+    font-weight: bold;
+}
+
 .quiz-container {
     max-width: 650px;
-    margin: 40px auto;
+    margin: 0 auto 80px;
     padding: 10px;
     text-align: center;
     background-color: blueviolet;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    height: auto;
 }
 
 h2 {
@@ -43,12 +69,12 @@ h2 {
 }
 
 .option-button.correct {
-    background-color: green;
+    background-color: lawngreen;
     color: white;
 }
 
 .option-button.wrong {
-    background-color: red;
+    background-color: re;
     color: white;
 }
 
@@ -59,16 +85,21 @@ h2 {
 
 .restart-button {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
     background-color: orangered;
-    color: white;
+    color: navajowhite;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
+    margin: 30px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .restart-button:hover {
-    background-color: orangered;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: orangered;
+    background-color: navajowhite;
+    font-weight: bold;
 }
 
 @media (max-width: 1024px) {
