@@ -4,19 +4,26 @@
     justify-items: center;
     align-items: center;
     gap: 10px;
+    min-height: 60px;
+    box-sizing: border-box;
 }
 
-.bouncy-button {
+.bouncy-button, .go-to-favorites-button {
     font-size: 18px;
     font-weight: bold;
     color: orangered;
     background-color: navajowhite;
-    border: none;
+    border: 2px solid orangered;
     text-align: center;
     border-radius: 25px;
     padding: 4px 7px;
     margin: 10px 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    }
+
+.bouncy-button:disabled {
+    cursor: not-allowed;
 }
 
 .bouncy-button:hover {
@@ -24,7 +31,6 @@
     color: navajowhite;
     font-weight: bold;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
 }
 
 @media (max-width: 1024px) {

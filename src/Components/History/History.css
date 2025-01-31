@@ -6,7 +6,7 @@
     text-align: center;
     width: 100%;
     gap: 50px;
-    padding: 40px 0;
+    padding: 80px 150px;
 }
 
 .history-container {
@@ -14,15 +14,15 @@
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    width: 100%;
-    max-width: 1500px;
+    width: 100vw;
     padding-bottom: 40px;
+    border-bottom: 2px dashed orangered;
 }
 
 .history-container p {
-    max-width: 1200px;
+    width: 60vw;
     font-weight: normal;
-    padding: 0 40px;
+    padding: 0 40px 100px;
 }
 
 .history-outer-container h2 {
@@ -31,12 +31,18 @@
     padding: 50px 0;
 }
 
-.history-1,
+.history-image-and-footnote p {
+    padding-bottom: 0;
+    width: 100vw;
+    font-weight: bold;
+}
+
+.history-image-0,
+.history-image-1,
 .history-image-2,
 .history-image-3,
 .history-image-4,
-.history-image-5,
-.history-image-6 {
+.history-image-5 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,48 +52,48 @@
     width: 100%;
 }
 
-.history-1 {
-    height: 600px;
-    background-image: url("src/assets/Images/history-1.jpg");
+.history-image-0 {
+    height: 700px;
+    background-image: url("/src/assets/Images/Life story of cocktails.webp");
+    margin: auto;
+}
+
+.history-image-1 {
+    height: 700px;
+    background-image: url("/src/assets/Images/Birth of the cocktail.webp");
     margin: auto;
 }
 
 .history-image-2 {
-    height: 550px;
-    background-image: url("/src/assets/Images/prohibition of cocktails.webp");
+    height: 600px;
+    background-image: url("/src/assets/Images/Prohibition of cocktails2.webp");
 }
 
 .history-image-3 {
-    height: 500px;
+    height: 700px;
     background-image: url("/src/assets/Images/glamour50s60s.webp");
     justify-content: space-evenly;
 }
 
 .history-image-4 {
-    height: 500px;
-    background-image: url("/src/assets/Images/Cocktail renaissance.jpg");
-    border-radius: 25px;
-    background-size: contain;
+    height: 600px;
+    background-image: url("/src/assets/Images/Renaissance cocktail image.webp");
+    background-size: cover;
 }
 
 .history-image-5 {
-    height: 530px;
-    background-image: url("/src/assets/Images/Modern cocktails.jpg");
+    height: 750px;
+    background-image: url("/src/assets/Images/Moderne cocktails2.webp");
     justify-content: space-evenly;
-}
-
-.history-image-6 {
-    height: 500px;
-    background-image: url("/src/assets/Images/glamour50s60s.webp");
-    justify-content: space-evenly;
+    background-position: bottom;
 }
 
 @media (max-width: 1024px) {
-    .history-1,
+    .history-image-0,
+    .history-image-1,
     .history-image-2,
     .history-image-3,
-    .history-image-5,
-    .history-image-6 {
+    .history-image-5 {
         height: 400px;
     }
 
@@ -102,12 +108,12 @@
 }
 
 @media (max-width: 768px) {
+    .history-image-0,
     .history-1,
     .history-image-2,
     .history-image-3,
     .history-image-4,
-    .history-image-5,
-    .history-image-6 {
+    .history-image-5 {
         height: 300px;
         background-position: center;
     }
@@ -123,12 +129,12 @@
 }
 
 @media (max-width: 480px) {
+    .history-image-0,
     .history-1,
     .history-image-2,
     .history-image-3,
     .history-image-4,
-    .history-image-5,
-    .history-image-6 {
+    .history-image-5 {
         height: 250px;
     }
 

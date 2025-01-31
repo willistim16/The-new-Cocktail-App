@@ -1,9 +1,11 @@
-.single-cocktail-page-header-container {
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Playwrite+DE+Grund:wght@100..400&display=swap');
+
+.cocktail-page-header-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: auto;
     gap: 20px;
     padding-top: 40px;
 }
@@ -13,15 +15,19 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
+    justify-items: center;
+    flex-wrap: wrap;
     gap: 60px;
-    width: 100%;
+    width: 100vw;
     padding: 40px;
     box-sizing: border-box;
+    border-radius: 25px;
+    margin: 40px auto;
 }
 
 .cocktail-details-container h3 {
     font-size: 30px;
-    color: darkblue;
+    color: orangered;
     text-decoration: underline;
 }
 
@@ -39,18 +45,68 @@
     justify-content: center;
     text-align: center;
     gap: 20px;
-    width: 25%;
+    width: 350px
 }
 
-.single-cocktail-page-header-container img {
+.rating-details-page {
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.rating-details-page textarea {
+    text-align: center;
+    height: auto;
+    min-height: 60px;
+    max-height: 100px;
+    width: 300px;
+    font-size: 15px;
+    padding: 4px 7px;
+    border-radius: 25px;
+    background-color: orangered;
+    margin-top: 15px;
+}
+
+.rating-details-page textarea::placeholder {
+    color: navajowhite;
+}
+
+.cocktail-detail-tiles p {
+    font-family: Arima, serif;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.cocktail-detail-instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    align-content: center;
+    width: auto;
+    margin: 0 auto;
+    padding: 0 200px 50px ;
+    gap: 20px;
+}
+
+.cocktail-detail-instructions h3 {
+    font-size: 50px;
+    color: orangered;
+    text-decoration: underline;
+}
+
+.cocktail-page-header-container img {
     border-radius: 20%;
-    width: 700px;
-    height: 700px;
+    width: 600px;
+    height: 500px;
     object-fit: cover;
 }
 
-.single-cocktail-page-header-container h1 {
-    color: indianred;
+.cocktail-page-header-container h1 {
+    color: orangered;
 }
 
 .cocktail-details-container p {
@@ -62,32 +118,96 @@
     font-weight: normal;
 }
 
-.cocktail-detail-ingredients {
+.rating-details-page h3 {
+    font-size: 35px;
+}
+
+.comment-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 10px
+}
+
+.comment-container button {
+    height: 40px;
+    font-size: 1em;
+    color: orangered;
+    font-weight: bold;
+    background-color: navajowhite;
+    border-radius: 30px;
+    padding: 4px 6px;
+    width: 200px;
+    border: none;
     text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.comment-container button:hover {
+    cursor: pointer;
+    background-color: orangered;
+    color: navajowhite;
+}
+
+.notes-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: navajowhite;
+    border-radius: 8px;
+}
+
+.notes-list h3 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.note-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: orangered;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 50%;
+}
+
+.comment-user-and-date {
+    text-decoration: underline;
+}
+
+.note-item p {
+    text-align: start;
+    margin: 0;
+    padding-left: 20px;
+    font-size: 1em;
 }
 
 @media (max-width: 1024px) {
     .cocktail-details-container {
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 30px;
         padding: 20px;
+        height: auto;
     }
 
     .cocktail-detail-tiles {
-        width: 50%;
+        width: 200px;
     }
 
-    .single-cocktail-page-header-container img {
-        width: 500px;
-        height: 500px;
+    .cocktail-page-header-container img {
+        width: 400px;
+        height: 400px;
     }
 
     .cocktail-details-container h3 {
-        font-size: 25px;
+        font-size: 30px;
     }
 
     .cocktail-details-container p {
@@ -99,9 +219,11 @@
     }
 }
 
+
 @media (max-width: 768px) {
     .cocktail-details-container {
         flex-direction: column;
+        align-content: center;
         gap: 40px;
         padding: 20px;
         align-items: center;
@@ -128,6 +250,7 @@
         font-size: 16px;
     }
 }
+
 
 @media (max-width: 480px) {
     .cocktail-details-container {

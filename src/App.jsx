@@ -1,5 +1,4 @@
 import '/src/Styles/globals.css';
-import '/src/Styles/responsive.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./Pages/HomePage/HomePage.jsx";
 import SearchPage from "./Pages/SearchPage/SearchPage.jsx";
@@ -17,18 +16,28 @@ import {useTheme} from "./Context/ThemeContext/ThemeContext.jsx";
 import SettingsPage from "./Pages/SettingsPage/SettingsPage.jsx";
 import PasswordReset from "./Pages/PasswordResetPage/PasswordResetPage.jsx";
 import PasswordResetRequest from "./Components/PasswordResetRequest/PasswordResetRequest.jsx";
+import LogInPrompter from "./Components/Prompters/LogInPrompter/LogInPrompter.jsx";
+import ScrollToTop from "./Components/ScrollToTop/ScrollToTop.jsx";
 
 const AppContent = () => {
     const { theme } = useTheme();
 
     return (
-        <div style={{ backgroundColor: theme.background, color: theme.text, minHeight: "100vh" }}>
+        <div style={{
+            backgroundColor: theme.background,
+            color: theme.text,
+            minHeight: "100vh",
+            transition: "background-color 0.3s, color 0.3s",
+        }}>
 
             <Router>
+                <ScrollToTop />
                 <Routes>
+
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/AboutPage" element={<HistoryPage />} />
+                    <Route path="/HistoryPage" element={<HistoryPage />} />
                     <Route path="/LogInRegisterPage" element={<LogInRegisterPage />} />
+                    <Route path="/LogInPrompter" element={<LogInPrompter />} />
                     <Route path="/password-reset-request" element={<PasswordResetRequest />} />
 
 

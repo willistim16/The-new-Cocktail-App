@@ -1,30 +1,29 @@
-import { useState } from "react";
+import {useContext, useState} from "react";
 import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
 import '/src/Pages/PasswordResetPage/PasswordResetPage.css';
+import AuthContext from "../../Context/AuthContext/AuthContext.jsx";
+import axios from "axios";
 
 function PasswordResetRequest() {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
     const API_URL = 'https://api.datavortex.nl/cocktailz';
+    const {user} = useContext(AuthContext)
+    const token = localStorage.getItem("jwt");
+
     const handlePasswordResetRequest = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`${API_URL}/users/password-reset-request`, {
-                method: "POST",
+            const response = await axios.put(`${API_URL}/users/${user.username}`, {
+                password: ""},{
                 headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ email }),
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,                }
+
             });
-            const data = await response.json();
-            if (response.ok) {
-                setMessage("Een e-mail is verzonden met instructies om je wachtwoord te herstellen.");
-            } else {
-                setMessage(data.error || "Er is een fout opgetreden.");
-            }
-            // eslint-disable-next-line no-unused-vars
+
         } catch (error) {
             setMessage("Kon geen verbinding maken met de server.");
         }

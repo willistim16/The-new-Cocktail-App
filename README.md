@@ -52,7 +52,7 @@ Clone de repository naar je lokale machine:
 
 ```bash
 
-git clone https://github.com/jouw-gebruikersnaam/cocktail-app.git
+git clone https://github.com/willistim16/The-new-Cocktail-App
 
 ```
 
@@ -64,7 +64,7 @@ cd cocktail-app
 
 # NPM-installatie 
 
-Installeer de benodigde afhankelijkheden:
+### Installeer de benodigde afhankelijkheden:
 
 ```bash
 
@@ -72,13 +72,10 @@ npm install
 
 ```
 
-### API-sleutel instellen: 
 
-Maak een bestand genaamd .env in de root van je project en voeg hierin je API-sleutel toe:
+# Applicatie starten 
 
-REACT_APP_COCKTAIL_API_KEY=JOUW_API_SLEUTEL
-
-### Applicatie starten Start de ontwikkelserver:
+### Start de ontwikkelserver:
 
 ```bash
 
@@ -86,7 +83,7 @@ npm start
 
 ```
 
-De applicatie zal beschikbaar zijn op http://localhost:3000.
+De applicatie zal beschikbaar zijn op http://localhost:5173.
 
 
 ## 4. Authenticatie en accounts
@@ -118,7 +115,7 @@ De Cocktail Applicatie maakt gebruik van TheCocktailDB API. Volg deze stappen om
 
 Naast npm start, kun je de volgende commando's gebruiken:
 
-#### Builden voor productie:
+### Builden voor productie:
 
 ```bash
 
@@ -126,7 +123,7 @@ npm run build
 
 ```
 
-#### Linten en code formatteren:
+### Linten en code formatteren:
 
 ```bash
 
@@ -134,7 +131,7 @@ npm run lint
 
 ```
 
-#### Tests draaien:
+### Tests draaien:
 
 ```bash
 
@@ -143,10 +140,10 @@ npm test
 ```
 
 
-## 7. Screenshot van de belangrijkste pagina
+## 7. Screenshots van de belangrijkste pagina
 
-Hier is een voorbeeld van de Cocktail Search pagina:
+#### Hier zijn 3 screenshots van de Cocktail zoeken pagina:
 
-![Screenshot van de homepage](Screenshots/ScreenshotSearchPage1.png)
-![Screenshot van de homepage](Screenshots/ScreenshotSearchPage2.png)
-![Screenshot van de homepage](Screenshots/ScreenshotSearchPage3.png)
+![Screenshot van de SearchPage](src/assets/Screenshots/SchermafbeeldingSearchpageCocktailz(1).png)
+![Screenshot van de SearchPage](src/assets/Screenshots/SchermafbeeldingSearchpageCocktailz(2).png)
+![Screenshot van de SearchPage](src/assets/Screenshots/SchermafbeeldingSearchpageCocktailz(3).png)

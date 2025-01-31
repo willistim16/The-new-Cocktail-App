@@ -15,7 +15,7 @@ const ThemeToggle = () => {
                 whileTap={{scale: 0.9}}
                 transition={{type: "spring", stiffness: 300}}
             >
-                {theme === lightTheme ? "Schakel donkere modus in" : "Schakel lichte modus in"}
+                {theme === lightTheme ? "Schakel naar Donkere modus" : "Schakel naar Lichte modus"}
             </motion.button>
         </div>
     );

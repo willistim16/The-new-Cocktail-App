@@ -1,5 +1,9 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
 import useAuth from '/server/useAuth.jsx';
+
+const API_URL = 'https://api.datavortex.nl/cocktailz';
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 const RatingContext = createContext();
 
@@ -9,44 +13,54 @@ export const RatingProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchRatings = async () => {
-            if (!token) return; // Only fetch if user is logged in
+            const localRatings = JSON.parse(localStorage.getItem('cocktailRatings')) || {};
+            setRatings(localRatings);
+
+            if (!token || !user?.username) return;
 
             try {
-                const response = await fetch('/api/ratings', {
+                const response = await axios.get(`${API_URL}/users/${user.username}/info`, {
                     headers: {
+                        'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`,
+                        'X-Api-Key': API_KEY,
                     },
                 });
 
-                if (!response.ok) throw new Error('Failed to fetch ratings');
+                const fetchedRatings = response.data.ratings || {};
+                const mergedRatings = { ...localRatings, ...fetchedRatings };
 
-                const data = await response.json();
-                setRatings(data);
+                setRatings(mergedRatings);
+                localStorage.setItem('cocktailRatings', JSON.stringify(mergedRatings));
             } catch (error) {
-                console.error('Error fetching ratings:', error);
+                console.error('Error fetching ratings from backend:', error);
             }
         };
 
         fetchRatings();
-    }, [token]);
+    }, [token, user?.username]);
 
     const saveRating = async (cocktailId, rating) => {
         const updatedRatings = { ...ratings, [cocktailId]: rating };
         setRatings(updatedRatings);
+        localStorage.setItem('cocktailRatings', JSON.stringify(updatedRatings));
 
-        if (!token) return;
+        if (!token || !user?.username) return;
 
         try {
-            await fetch('/api/ratings', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify({ cocktailId, rating, userId: user.id }),
-            });
+            await axios.put(
+                `${API_URL}/users/${user.username}/info`,
+                { ratings: updatedRatings },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`,
+                        'X-Api-Key': API_KEY,
+                    },
+                }
+            );
         } catch (error) {
-            console.error('Error saving rating:', error);
+            console.error('Error saving rating to backend:', error);
         }
     };
 
@@ -57,5 +71,4 @@ export const RatingProvider = ({ children }) => {
     );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useRating = () => useContext(RatingContext);

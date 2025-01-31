@@ -2,7 +2,6 @@ import NavigationBar from "../NavBar/NavigationBar.jsx";
 import '/src/Components/Header/Header.css'
 
 
-
 function Header ({content, title}) {
 
     return (

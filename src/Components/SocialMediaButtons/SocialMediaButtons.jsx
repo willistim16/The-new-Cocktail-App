@@ -1,4 +1,8 @@
-import { FaTwitter, FaFacebook, FaWhatsapp } from 'react-icons/fa';
+import { lazy, Suspense } from 'react';
+
+const FaTwitter = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaTwitter })));
+const FaFacebook = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaFacebook })));
+const FaWhatsapp = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaWhatsapp })));
 
 function SocialMediaButtons({ cocktailName, cocktailLink }) {
     const twitterUrl = `https://twitter.com/intent/tweet?text=Check out this cocktail: ${cocktailName}!&url=${cocktailLink}`;
@@ -7,15 +11,17 @@ function SocialMediaButtons({ cocktailName, cocktailLink }) {
 
     return (
         <div style={styles.container}>
-            <a href={twitterUrl} target="_blank" rel="noopener noreferrer" style={styles.icon}>
-                <FaTwitter title="Share on Twitter" />
-            </a>
-            <a href={facebookUrl} target="_blank" rel="noopener noreferrer" style={styles.icon}>
-                <FaFacebook title="Share on Facebook" />
-            </a>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" style={styles.icon}>
-                <FaWhatsapp title="Share on WhatsApp" />
-            </a>
+            <Suspense fallback={<div>Loading...</div>}>
+                <a href={twitterUrl} target="_blank" rel="noopener noreferrer" className="icon">
+                    <FaTwitter title="Share on Twitter" />
+                </a>
+                <a href={facebookUrl} target="_blank" rel="noopener noreferrer" className="icon">
+                    <FaFacebook title="Share on Facebook" />
+                </a>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="icon">
+                    <FaWhatsapp title="Share on WhatsApp" />
+                </a>
+            </Suspense>
         </div>
     );
 }
@@ -27,8 +33,7 @@ const styles = {
         justifyContent: 'center',
     },
     icon: {
-        fontSize: '20px',
-        // color: 'orangered',
+        fontSize: '15px',
         textDecoration: 'none',
         transition: 'transform 0.3s',
     },

@@ -1,7 +1,8 @@
 const darkTheme = {
-    background: "#000000",
-    text: "#bb86fc",
+    background: "#4b0082",
+    text: "#ffdead",
     primary: "#bb86fc",
+    h2: "#ffdead",
 };
 
 export default darkTheme;

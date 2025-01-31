@@ -1,29 +1,38 @@
-.about-page-header p {
-    font-size: 16px;
+.history-page-header {
+    background-image: url("/src/assets/Images/CocktailHistory.webp");
+    width: 100vw;
+    height: 800px;
+    padding-top: 300px;
+    background-size: cover;
+    background-position: top;
+}
+
+.history-page-header p {
+    font-size: 20px;
     font-weight: bold;
 }
 
-.about-page-header h1 {
+.history-page-header h1 {
     margin-top: 50px;
 }
 
 @media (max-width: 768px) {
-    .about-page-header p {
+    .history-page-header p {
         font-size: 14px;
     }
 
-    .about-page-header h1 {
+    .history-page-header h1 {
         margin-top: 30px;
     }
 }
 
 @media (max-width: 480px) {
-    .about-page-header p {
+    .history-page-header p {
         font-size: 12px;
         text-align: center;
     }
 
-    .about-page-header h1 {
+    .history-page-header h1 {
         margin-top: 20px;
         font-size: 24px;
         text-align: center;

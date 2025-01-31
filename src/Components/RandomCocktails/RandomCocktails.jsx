@@ -5,7 +5,7 @@ import '/src/Pages/HomePage/Home.css'
 import ProtectedLink from "../ProtectedLink/ProtectedLink.jsx";
 import { Link } from 'react-router-dom';
 import useAuth from "../../helpers/useAuth.js";
-
+import {motion} from "framer-motion";
 
 function RandomCocktails() {
     const [cocktails, setCocktails] = useState([]);
@@ -39,9 +39,14 @@ function RandomCocktails() {
     return (
         <>
         <div className="random-cocktails-container">
-            <button onClick={fetchRandomCocktails} className="refresh-button">
-                Load New Cocktails
-            </button>
+            <motion.button
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}
+                transition={{type: "spring", stiffness: 300}}
+                onClick={fetchRandomCocktails} className="refresh-button"
+            >
+                Laadt nieuwe Cocktails
+            </motion.button>
             {loading ? (
                 <p>Loading...</p>
             ) : (

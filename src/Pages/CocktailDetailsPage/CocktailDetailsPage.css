@@ -2,6 +2,39 @@
     padding-top: 20px;
 }
 
+.main-section-details-page {
+    padding-top: 120px;
+}
+
+.back-button-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+.back-button {
+    background-color: orangered;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: fixed;
+}
+
+.back-button:hover {
+    background-color: darkred;
+}
+
+.back-button:active {
+    background-color: firebrick;
+}
+
 @media (max-width: 768px) {
     .single-cocktail-page-header h1 {
         padding-top: 15px;

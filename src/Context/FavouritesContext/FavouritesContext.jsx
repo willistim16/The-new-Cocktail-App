@@ -1,11 +1,10 @@
-import {createContext, useContext, useEffect, useState} from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import useAuth from "../../../server/useAuth.jsx";
 import axios from "axios";
 
-const API_URL = 'https://api.datavortex.nl/cocktailz'
+const API_URL = 'https://api.datavortex.nl/cocktailz';
 const API_KEY = import.meta.env.VITE_API_KEY;
 const FavouritesContext = createContext();
-
 
 export const FavouritesProvider = ({ children }) => {
     const [favourites, setFavourites] = useState(() => {
@@ -17,66 +16,67 @@ export const FavouritesProvider = ({ children }) => {
     useEffect(() => {
         const fetchFavourites = async () => {
             if (!token || !user?.username) return;
+
             try {
                 const response = await axios.get(`${API_URL}/users/${user.username}/info`, {
                     headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'X-Api-Key': `${API_KEY}`,
+                        Authorization: `Bearer ${token}`,
+                        'X-Api-Key': API_KEY,
                     },
                 });
-                setFavourites(response.data.favourites || []);
+
+                const userInfo = response.data;
+                if (userInfo?.favourites) {
+                    setFavourites(userInfo.favourites);
+                    localStorage.setItem('favourites', JSON.stringify(userInfo.favourites));
+                } else {
+                    setFavourites([]);
+                }
             } catch (error) {
                 console.error('Error fetching favourites:', error);
-                alert('Could not load favourites. Please try again later.');
+                alert('Could not fetch favourites. Please try again later.');
             }
         };
 
         fetchFavourites();
     }, [token, user?.username]);
 
-    useEffect(() => {
-        localStorage.setItem('favourites', JSON.stringify(favourites));
-    }, [favourites]);
+    const saveFavouritesToServer = async (updatedFavourites) => {
+        if (!token || !user?.username) return;
 
-    const addFavourite = async (cocktail) => {
-        const updatedFavourites = [...favourites, cocktail];
-        setFavourites(updatedFavourites);
-
-        if (token && user?.username) {
-            try {
-                await axios.get(`${API_URL}/users/${user.username}/favourites`, {
-                    method: 'POST',
+        try {
+            const response = await axios.put(
+                `${API_URL}/users/${user.username}`,
+                { info: { favourites: updatedFavourites } },
+                {
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`,
+                        Authorization: `Bearer ${token}`,
                         'X-Api-Key': API_KEY,
                     },
-                });
-            } catch (error) {
-                console.error('Error saving favourite:', error);
-                alert('Could not save favourite. Please try again later.');
+                }
+            );
+            if (response.status === 200) {
 
             }
+        } catch (error) {
+            console.error('Error saving favourites to server:', error);
+            alert('Could not save favourites. Please try again later.');
         }
     };
 
-    const removeFavourite = async (idDrink) => {
+    const addFavourite = (cocktail) => {
+        const updatedFavourites = [...favourites, cocktail];
+        setFavourites(updatedFavourites);
+        localStorage.setItem('favourites', JSON.stringify(updatedFavourites));
+        saveFavouritesToServer(updatedFavourites);
+    };
+
+    const removeFavourite = (idDrink) => {
         const updatedFavourites = favourites.filter((cocktail) => cocktail.idDrink !== idDrink);
         setFavourites(updatedFavourites);
-
-        if (token && user?.username) {
-            try {
-                await axios.get(`${API_URL}/users/${user.username}/favourites/${idDrink}`, {
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'X-Api-Key': API_KEY,
-                    },
-                });
-            } catch (error) {
-                console.error('Error removing favourite:', error);
-                alert('Could not remove favourite. Please try again later.');
-            }
-        }
+        localStorage.setItem('favourites', JSON.stringify(updatedFavourites));
+        saveFavouritesToServer(updatedFavourites);
     };
 
     return (
@@ -86,7 +86,6 @@ export const FavouritesProvider = ({ children }) => {
     );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useFavourites = () => {
     const context = useContext(FavouritesContext);
     if (!context) {

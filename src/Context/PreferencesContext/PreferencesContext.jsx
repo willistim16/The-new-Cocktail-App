@@ -5,7 +5,9 @@ const PreferencesContext = createContext();
 export function PreferencesProvider({ children }) {
     const [preferences, setPreferences] = useState(() => {
         const savedPreferences = localStorage.getItem('preferences');
-        return savedPreferences ? JSON.parse(savedPreferences) : { theme: 'light', notifications: true };
+        return savedPreferences
+            ? JSON.parse(savedPreferences)
+            : { theme: 'light', notifications: true };
     });
 
     useEffect(() => {
@@ -23,4 +25,5 @@ export function PreferencesProvider({ children }) {
     );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const usePreferences = () => useContext(PreferencesContext);

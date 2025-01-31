@@ -1,37 +1,45 @@
 import useAuth from '/server/useAuth.jsx';
 import Header from "../../Components/Header/Header.jsx";
 import '/src/Pages/ProfilePage/ProfilePage.css'
+import '/src/Styles/globals.css'
 import Footer from "../../Components/Footer/Footer.jsx";
 import LogoutButton from "../../Components/LogoutButton/LogoutButton.jsx";
 import {motion} from "framer-motion";
 import {useNavigate} from "react-router-dom";
+import {useTheme} from "../../Context/ThemeContext/ThemeContext.jsx";
 
 function ProfilePage() {
-    const { user } = useAuth();
+    const { user, isAuthenticated } = useAuth();
     const navigate = useNavigate();
+    const { theme } = useTheme();
+
+    if (!isAuthenticated) {
+        return <p>Please log in to view your profile.</p>;
+    }
 
     if (!user) {
         return <p>Loading...</p>;
     }
 
-
-
     const handleButtonClick = () => {
         navigate("/PasswordResetPage");
     };
 
+
     return (
         <>
-        <div className="header-profile-page">
-            <Header
-            title="Profiel pagina"
-            content=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cum eligendi, el labore libero obcaecati sin"
-            />
+        <div className="profile-page-header">
+            <Header/>
         </div>
             <main>
-                <div className="profile-page-container">
+                <div
+                    style={{
+                    backgroundColor: theme.background,
+                    transition: "background-color 0.3s",
+                }}
+                    className="profile-page-container">
                     <div className="profile-page-h1">
-                        <h1>Mijn Profiel</h1>
+                        {/*<h1>Mijn Profiel</h1>*/}
                     </div>
                     <div className="user-data-profile-page">
                         <div className="user-info-container">

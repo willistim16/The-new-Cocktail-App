@@ -1,7 +1,11 @@
-.header-settings-page h1 {
-    padding: 100px 100px 0 0;
+.settings-page {
+    padding: 90px 0;
+}
+
+.settings-page h2 {
     color: orangered;
-    font-size: 80px;
+    font-size: 60px;
+    padding-top: 30px;
 }
 
 @media (max-width: 1024px) {

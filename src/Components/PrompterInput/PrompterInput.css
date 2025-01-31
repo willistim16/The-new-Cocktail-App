@@ -1,10 +1,10 @@
-.login-input-field {
+.prompt-input-field {
     display: flex;
     justify-content: space-between;
     width: 500px;
 }
 
-.login-input-field input {
+.prompt-input-field input {
     width: 300px;
     background-color: navajowhite;
     color: orangered;
@@ -14,23 +14,24 @@
     font-size: 20px;
     padding-left: 10px;
     justify-self: flex-end;
+    margin: 10px 0;
 }
 
 @media (max-width: 768px) {
-    .login-input-field {
+    .prompt-input-field {
         flex-direction: column;
         align-items: center;
         gap: 10px;
     }
 
-    .login-input-field input {
+    .prompt-input-field input {
         max-width: 100%;
         font-size: 16px;
     }
 }
 
 @media (max-width: 480px) {
-    .login-input-field input {
+    .prompt-input-field input {
         font-size: 14px;
         height: 28px;
     }

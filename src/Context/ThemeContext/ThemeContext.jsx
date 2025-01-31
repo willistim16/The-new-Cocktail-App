@@ -1,31 +1,38 @@
-import { createContext, useState, useContext, useEffect } from "react";
-import lightTheme from "../../Styles/lightTheme.jsx";
-import darkTheme from "../../Styles/darkTheme.jsx";
+import { createContext, useContext, useState, useEffect } from "react";
+import lightTheme from "../../Styles/lightTheme";
+import darkTheme from "../../Styles/darkTheme";
+import { usePreferences } from "../PreferencesContext/PreferencesContext.jsx";
 
 const ThemeContext = createContext();
 
-export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState(lightTheme);
+export function ThemeProvider({ children }) {
+    const { preferences } = usePreferences();
+    const [theme, setTheme] = useState(() => {
+        const savedTheme = localStorage.getItem("theme");
+        return savedTheme === "dark" ? darkTheme : lightTheme;
+    });
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem("appTheme");
-        setTheme(savedTheme === "dark" ? darkTheme : lightTheme);
-    }, []);
+        setTheme(preferences.theme === "dark" ? darkTheme : lightTheme);
+    }, [preferences.theme]);
+
+    useEffect(() => {
+        localStorage.setItem("theme", theme === darkTheme ? "dark" : "light");
+    }, [theme]);
 
     const toggleTheme = () => {
-        setTheme((prevTheme) => {
-            const newTheme = prevTheme === lightTheme ? darkTheme : lightTheme;
-            localStorage.setItem("appTheme", newTheme === darkTheme ? "dark" : "light");
-            return newTheme;
-        });
+        setTheme((prevTheme) => (prevTheme === lightTheme ? darkTheme : lightTheme));
+    };
+
+    const setThemeFromPreferences = (newTheme) => {
+        setTheme(newTheme === "dark" ? darkTheme : lightTheme);
     };
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <ThemeContext.Provider value={{ theme, toggleTheme, setThemeFromPreferences }}>
             {children}
         </ThemeContext.Provider>
     );
-};
+}
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useTheme = () => useContext(ThemeContext);

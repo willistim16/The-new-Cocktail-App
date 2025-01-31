@@ -43,24 +43,28 @@ function SearchBarContainer() {
     };
 
     return (
-        <div className="search-container">
+        <div>
             <div className="searchBar-container">
                 <div className="search-option">
                     <input
                         name="name"
                         type="text"
-                        placeholder="Search by name"
+                        placeholder="Zoek op naam..."
                         value={searchTermName}
                         onChange={handleNameChange}
+                        onFocus={(e) => (e.target.placeholder = "")}
+                        onBlur={(e) => (e.target.placeholder = "Zoek op naam...")}
                     />
                 </div>
                 <div className="search-option">
                     <input
                         name="ingredient"
                         type="text"
-                        placeholder="Search by ingredient"
+                        placeholder="Zoek op ingrediënt..."
                         value={searchTermIngredient}
                         onChange={handleIngredientChange}
+                        onFocus={(e) => (e.target.placeholder = "")}
+                        onBlur={(e) => (e.target.placeholder = "Zoek op ingrediënt...")}
                     />
                 </div>
             </div>
