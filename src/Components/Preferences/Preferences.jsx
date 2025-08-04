@@ -1,4 +1,4 @@
-import { usePreferences } from '/src/Context/PreferencesContext/PreferencesContext';
+import { usePreferences } from '/src/Context/Preferences/usePreferences.js';
 import './Preferences.css';
 import { useTheme } from "../../Context/ThemeContext/ThemeContext.jsx";
 import { useEffect, useState } from 'react';

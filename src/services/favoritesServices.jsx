@@ -1,24 +1,12 @@
-import axios from 'axios';
-
-const API_URL = 'https://api.datavortex.nl/cocktailz'
-const API_KEY = import.meta.env.VITE_API_KEY;
-
-const token = localStorage.getItem('jwt');
+// src/services/favoritesServices.js
+import apiClient from '../api/apiClient';
 
 export const getUserFavorites = async (username) => {
     try {
-        const response = await axios.get(`${API_URL}/users/{username}/info`, username, {
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
-                'X-Api-Key': API_KEY,
-            }
-        });
-
+        const response = await apiClient.get(`/users/${username}/info`);
         return response.data;
-
-        // eslint-disable-next-line no-unused-vars
     } catch (error) {
+        console.error('Failed to fetch favorites:', error);
         throw new Error('Failed to fetch favorites');
     }
 };

@@ -11,17 +11,16 @@ const FilterOptions = ({ onFilterChange, setFilter }) => {
     useEffect(() => {
         const fetchFilterOptions = async () => {
             try {
-                const categoryResponse = await fetch(
-                    "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list"
-                );
+                // Fetch categories from your backend
+                const categoryResponse = await fetch(`${import.meta.env.VITE_API_URL}/categories`);
                 const categoryData = await categoryResponse.json();
-                setCategories(categoryData.drinks.map((drink) => drink.strCategory));
+                setCategories(categoryData); // Assuming backend returns an array of strings or objects with category names
 
-                const glassResponse = await fetch(
-                    "https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list"
-                );
+                // Fetch glass types from your backend
+                const glassResponse = await fetch(`${import.meta.env.VITE_API_URL}/glasses`);
                 const glassData = await glassResponse.json();
-                setGlassTypes(glassData.drinks.map((drink) => drink.strGlass));
+                setGlassTypes(glassData); // Assuming similar array
+
             } catch (error) {
                 console.error("Error fetching filter options:", error);
             }
@@ -36,15 +35,19 @@ const FilterOptions = ({ onFilterChange, setFilter }) => {
         alcoholic = isAlcoholic
     ) => {
         try {
-            let query = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?`;
+            // Construct your backend query params for filtering
+            let queryParams = new URLSearchParams();
 
-            if (category) query += `c=${encodeURIComponent(category)}&`;
-            if (alcoholic) query += `a=${encodeURIComponent(alcoholic)}&`;
-            if (glass) query += `g=${encodeURIComponent(glass)}&`;
+            if (category) queryParams.append("category", category);
+            if (alcoholic) queryParams.append("alcoholic", alcoholic);
+            if (glass) queryParams.append("glass", glass);
 
-            const response = await fetch(query);
+            const url = `${import.meta.env.VITE_API_URL}/cocktails/filter?${queryParams.toString()}`;
+
+            const response = await fetch(url);
             const data = await response.json();
-            onFilterChange(data.drinks || []);
+
+            onFilterChange(data); // Assuming backend returns an array of cocktail objects
 
             setFilter({
                 selectedCategory: category,
@@ -72,7 +75,12 @@ const FilterOptions = ({ onFilterChange, setFilter }) => {
         <div>
             <div className="alcoholic-buttons">
                 <motion.button
-                    onClick={() => handleFilterChange("alcoholic", isAlcoholic === "Alcoholic" ? "Non_Alcoholic" : "Alcoholic")}
+                    onClick={() =>
+                        handleFilterChange(
+                            "alcoholic",
+                            isAlcoholic === "Alcoholic" ? "Non_Alcoholic" : "Alcoholic"
+                        )
+                    }
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ type: "spring", stiffness: 300 }}

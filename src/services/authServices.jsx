@@ -1,17 +1,9 @@
-import axios from "axios";
-
-const API_URL = 'https://api.datavortex.nl/cocktailz'
-const API_KEY = import.meta.env.VITE_API_KEY;
-
+// src/services/authServices.js
+import apiClient from '../api/apiClient';
 
 export const registerUser = async (userData) => {
     try {
-        const response = await axios.post(`${API_URL}/users`, userData, {
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Api-Key': `${API_KEY}`,
-            }});
-
+        const response = await apiClient.post('/auth/register', userData);
         return response.data;
     } catch (error) {
         console.error("Registration error details:", error);
@@ -19,40 +11,22 @@ export const registerUser = async (userData) => {
     }
 };
 
-
-
 export const loginUser = async (credentials) => {
     try {
-        const response = await axios.post(`${API_URL}/users/authenticate`, credentials, {
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Api-Key': `${API_KEY}`,
-            },
-
-        });
-
-        const { jwt: token } = response.data;
-
+        // Step 1: Authenticate and get token
+        const response = await apiClient.post('/auth/login', credentials);
+        const { token } = response.data;
 
         if (!token) {
             throw new Error("JWT missing in response");
         }
 
-        const userResponse = await axios.get(`${API_URL}/users/${credentials.username}`,  {
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
-                'X-Api-Key': `${API_KEY}`,
-            },
-        });
+        // Step 2: Temporarily set token in localStorage for use in next request (interceptor will pick it up)
+        localStorage.setItem('jwt', token);
 
-
-
-        const user = userResponse.data;
-
+        // Step 4: Cleanup or return structured data
         const userData = {
-            username: user?.username || 'Unknown User',
-            email: user?.email || 'No email provided',
+            username: credentials.username,
         };
 
         return {

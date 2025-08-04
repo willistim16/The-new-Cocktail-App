@@ -1,16 +1,15 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import useAuth from "../../../server/useAuth.jsx";
-import axios from "axios";
+import useAuth from "/server/useAuth.jsx";
+import apiClient from "/src/api/apiClient.js"; // use central axios instance
 
-const API_URL = 'https://api.datavortex.nl/cocktailz';
-const API_KEY = import.meta.env.VITE_API_KEY;
 const FavouritesContext = createContext();
 
 export const FavouritesProvider = ({ children }) => {
     const [favourites, setFavourites] = useState(() => {
-        const storedFavourites = localStorage.getItem('favourites');
-        return storedFavourites ? JSON.parse(storedFavourites) : [];
+        const stored = localStorage.getItem('favourites');
+        return stored ? JSON.parse(stored) : [];
     });
+
     const { token, user } = useAuth();
 
     useEffect(() => {
@@ -18,14 +17,9 @@ export const FavouritesProvider = ({ children }) => {
             if (!token || !user?.username) return;
 
             try {
-                const response = await axios.get(`${API_URL}/users/${user.username}/info`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'X-Api-Key': API_KEY,
-                    },
-                });
-
+                const response = await apiClient.get(`/users/${user.username}/info`);
                 const userInfo = response.data;
+
                 if (userInfo?.favourites) {
                     setFavourites(userInfo.favourites);
                     localStorage.setItem('favourites', JSON.stringify(userInfo.favourites));
@@ -45,20 +39,9 @@ export const FavouritesProvider = ({ children }) => {
         if (!token || !user?.username) return;
 
         try {
-            const response = await axios.put(
-                `${API_URL}/users/${user.username}`,
-                { info: { favourites: updatedFavourites } },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `Bearer ${token}`,
-                        'X-Api-Key': API_KEY,
-                    },
-                }
-            );
-            if (response.status === 200) {
-
-            }
+            await apiClient.put(`/users/${user.username}`, {
+                info: { favourites: updatedFavourites }
+            });
         } catch (error) {
             console.error('Error saving favourites to server:', error);
             alert('Could not save favourites. Please try again later.');
@@ -66,17 +49,17 @@ export const FavouritesProvider = ({ children }) => {
     };
 
     const addFavourite = (cocktail) => {
-        const updatedFavourites = [...favourites, cocktail];
-        setFavourites(updatedFavourites);
-        localStorage.setItem('favourites', JSON.stringify(updatedFavourites));
-        saveFavouritesToServer(updatedFavourites);
+        const updated = [...favourites, cocktail];
+        setFavourites(updated);
+        localStorage.setItem('favourites', JSON.stringify(updated));
+        saveFavouritesToServer(updated);
     };
 
     const removeFavourite = (idDrink) => {
-        const updatedFavourites = favourites.filter((cocktail) => cocktail.idDrink !== idDrink);
-        setFavourites(updatedFavourites);
-        localStorage.setItem('favourites', JSON.stringify(updatedFavourites));
-        saveFavouritesToServer(updatedFavourites);
+        const updated = favourites.filter((c) => c.idDrink !== idDrink);
+        setFavourites(updated);
+        localStorage.setItem('favourites', JSON.stringify(updated));
+        saveFavouritesToServer(updated);
     };
 
     return (

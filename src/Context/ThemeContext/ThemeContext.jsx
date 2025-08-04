@@ -1,31 +1,44 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import lightTheme from "../../Styles/lightTheme";
 import darkTheme from "../../Styles/darkTheme";
-import { usePreferences } from "../PreferencesContext/PreferencesContext.jsx";
+import { usePreferences } from "/src/Context/Preferences/usePreferences.js";
 
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
     const { preferences } = usePreferences();
-    const [theme, setTheme] = useState(() => {
+
+    // Store 'light' or 'dark' as state, easier to compare and store in localStorage
+    const [themeMode, setThemeMode] = useState(() => {
         const savedTheme = localStorage.getItem("theme");
-        return savedTheme === "dark" ? darkTheme : lightTheme;
+        return savedTheme === "dark" ? "dark" : "light";
     });
 
+    // When preferences change, update theme mode accordingly
     useEffect(() => {
-        setTheme(preferences.theme === "dark" ? darkTheme : lightTheme);
+        if (preferences.theme === "dark" || preferences.theme === "light") {
+            setThemeMode(preferences.theme);
+        }
     }, [preferences.theme]);
 
+    // Save themeMode string to localStorage
     useEffect(() => {
-        localStorage.setItem("theme", theme === darkTheme ? "dark" : "light");
-    }, [theme]);
+        localStorage.setItem("theme", themeMode);
+    }, [themeMode]);
 
+    // Derive theme object from themeMode
+    const theme = themeMode === "dark" ? darkTheme : lightTheme;
+
+    // Toggle theme mode string
     const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === lightTheme ? darkTheme : lightTheme));
+        setThemeMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
     };
 
+    // Set theme directly from preferences string
     const setThemeFromPreferences = (newTheme) => {
-        setTheme(newTheme === "dark" ? darkTheme : lightTheme);
+        if (newTheme === "dark" || newTheme === "light") {
+            setThemeMode(newTheme);
+        }
     };
 
     return (

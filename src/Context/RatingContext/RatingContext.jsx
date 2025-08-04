@@ -1,9 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import apiClient from '/src/api/apiClient.js';  // Use centralized axios instance
 import useAuth from '/server/useAuth.jsx';
-
-const API_URL = 'https://api.datavortex.nl/cocktailz';
-const API_KEY = import.meta.env.VITE_API_KEY;
 
 const RatingContext = createContext();
 
@@ -19,14 +16,7 @@ export const RatingProvider = ({ children }) => {
             if (!token || !user?.username) return;
 
             try {
-                const response = await axios.get(`${API_URL}/users/${user.username}/info`, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`,
-                        'X-Api-Key': API_KEY,
-                    },
-                });
-
+                const response = await apiClient.get(`/users/${user.username}/info`);
                 const fetchedRatings = response.data.ratings || {};
                 const mergedRatings = { ...localRatings, ...fetchedRatings };
 
@@ -48,17 +38,7 @@ export const RatingProvider = ({ children }) => {
         if (!token || !user?.username) return;
 
         try {
-            await axios.put(
-                `${API_URL}/users/${user.username}/info`,
-                { ratings: updatedRatings },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`,
-                        'X-Api-Key': API_KEY,
-                    },
-                }
-            );
+            await apiClient.put(`/users/${user.username}/info`, { ratings: updatedRatings });
         } catch (error) {
             console.error('Error saving rating to backend:', error);
         }

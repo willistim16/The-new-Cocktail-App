@@ -93,7 +93,7 @@
     height: auto;
 }
 
-.favourite-item textarea::placeholder {
+.favourite-item textarea {
     color: orangered;
     text-align: center;
 }

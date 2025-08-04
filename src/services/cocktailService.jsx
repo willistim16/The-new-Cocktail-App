@@ -1,22 +1,22 @@
 import axios from 'axios';
 
-const API_URL = 'https://www.thecocktaildb.com/api/json/v1/1';
+const BACKEND_API_URL = 'https://api.datavortex.nl/cocktailz';
 
-export const searchCocktailsByName = async (name) => {
+export const searchCocktailsByName = async (name, token) => {
     try {
-        const response = await axios.get(`${API_URL}/search.php?s=${name}`);
-        const allCocktails = response.data.drinks;
-
-        return Array.isArray(allCocktails)
-            ? allCocktails.filter(cocktail =>
-                cocktail.strDrink.toLowerCase().includes(name.toLowerCase())
-            )
-            : [];
+        const response = await axios.get(`${BACKEND_API_URL}/cocktails/search?name=${name}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'X-Api-Key': import.meta.env.VITE_API_KEY
+            }
+        });
+        return response.data;  // your backend should return cocktail list JSON here
     } catch (error) {
         console.error('Error fetching cocktails:', error);
         return [];
     }
 };
+
 
 export const searchCocktailsByIngredient = async (ingredient) => {
     try {
